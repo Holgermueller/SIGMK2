@@ -4,27 +4,20 @@ function updatingTime() {
     let minutes = currentTime.getMinutes();
     let seconds = currentTime.getSeconds();
 
-    if ( seconds < 10) {
-        seconds = '0' + seconds;
-    }
+    seconds < 10 ? '0' + seconds : seconds;
 
-    if (minutes < 10 ) {
-        minutes = '0' + minutes;
-    }
+    minutes < 10 ? '0' + minutes : minutes;
 
     let updatingHours = hours + ': ' + minutes + ': ' + seconds + ' ';
-    if (hours > 11) {
-        updatingHours += 'PM';
-    } else {
-        updatingHours += 'AM'
-    }
+    hours >= 12 ? updatingHours += 'PM' : updatingHours += 'AM'
+
     document.getElementById('time').innerHTML = updatingHours;
 };
 setInterval(updatingTime, 1000);
 
 const myLocation = document.getElementById('location');
 
-function userLocation(){
+function userLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     } else {
@@ -33,7 +26,7 @@ function userLocation(){
 };
 
 function showPosition(position) {
-    
+
 }
 
 console.log(navigator.geolocation.getCurrentPosition(showPosition));
