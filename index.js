@@ -4,9 +4,9 @@ function updatingTime() {
     let minutes = currentTime.getMinutes();
     let seconds = currentTime.getSeconds();
 
-    seconds < 10 ? '0' + seconds : seconds;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
 
-    minutes < 10 ? '0' + minutes : minutes;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
 
     let updatingHours = hours + ': ' + minutes + ': ' + seconds + ' ';
     hours >= 12 ? updatingHours += 'PM' : updatingHours += 'AM'
