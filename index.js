@@ -38,8 +38,8 @@ const getLocationFromForm = document.querySelector('.query-location');
 
 function getLocation(e) {
 	e.preventDefault();
-	document.getElementById('forcastLocation').value;
-	console.log(e.value);
+	const text = (this.querySelector('[name=location]')).value;
+	console.log(text);
 }
 
 getLocationFromForm.addEventListener('submit', getLocation);
