@@ -1,0 +1,22 @@
+{
+  "name": "timeandtemp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Holgermueller/TimeandTemp.git"
+  },
+  "author": "Holger Mueller",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Holgermueller/TimeandTemp/issues"
+  },
+  "homepage": "https://github.com/Holgermueller/TimeandTemp#readme",
+  "dependencies": {
+    "weather-js": "^2.0.0"
+  }
+}
