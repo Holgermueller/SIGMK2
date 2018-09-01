@@ -42,14 +42,8 @@ function getLocation(e) {
 	e.preventDefault();
 	const text = (this.querySelector('[name=location]')).value;
 	console.log(text);
-	const locations = text;
-	loadLocation(locations, locationList);
+	localStorage.setItem('location', JSON.stringify(text));
 	this.reset();
 }
 
-function loadLocation(locations = [], locationList) {
-
-}
-
 getLocationFromForm.addEventListener('submit', getLocation, true);
-loadLocation(locations, locationList);
