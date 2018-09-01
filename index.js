@@ -15,35 +15,8 @@ function updatingTime() {
 };
 setInterval(updatingTime, 1000);
 
-// Get location:
+// determine user location
 
-const myLocation = document.getElementById('location');
-const locations = [];
-let locationList = document.querySelector('.query-locations');
+// get weather forecasts
 
-function userLocation() {
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(showPosition);
-	} else {
-		myLocation.innerHTML = 'Geolocation is not supported by this browser.';
-	}
-};
-console.log(navigator.geolocation);
-
-
-function showPosition(position) {
-
-}
-
-// get weather forcasts
-const getLocationFromForm = document.querySelector('.query-locations');
-
-function getLocation(e) {
-	e.preventDefault();
-	const text = (this.querySelector('[name=location]')).value;
-	console.log(text);
-	localStorage.setItem('location', JSON.stringify(text));
-	this.reset();
-}
-
-getLocationFromForm.addEventListener('submit', getLocation, true);
+// display weather forecasts
