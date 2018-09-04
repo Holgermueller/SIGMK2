@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/Holgermueller/TimeandTemp#readme",
   "dependencies": {
-    "dotenv": "^6.0.0",
+    "dotenv": "^6.0.0"
   }
 }
