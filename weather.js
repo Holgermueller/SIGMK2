@@ -1,17 +1,26 @@
 $(document).ready(() => {
 
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(showPosition);
-	} else{
+	navigator.geolocation ?
+		navigator.geolocation.getCurrentPosition(showPosition):
 		console.log('not supported');
-	}
 
 	function showPosition(position) {
-		console.log(position.coords);
+		const Lat = position.coords.latitude;
+		const Long = position.coords.longitude;
+
+
+		let url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + Lat + '&lon=' + Long + '*********';
+
+		$.ajax({
+			url:url,
+			method: 'GET',
+			success: data => {
+				console.log(data);
+			}
+		})
 	}
 
 });
-// determine user location
 
 // get weather for that specific time an place
 
