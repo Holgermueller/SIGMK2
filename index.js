@@ -14,9 +14,3 @@ function updatingTime() {
 	document.getElementById('time').innerHTML = updatingHours;
 };
 setInterval(updatingTime, 1000);
-
-// determine user location
-
-// get weather forecasts
-
-// display weather forecasts

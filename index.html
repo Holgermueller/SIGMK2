@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1 id="location">Location goes here</h1>
-    <h2 id="time">Time goes here</h2>
+    <h2 id="time"></h2>
 
     <h3>Enter location</h3>
     <form class="query-locations">
@@ -16,7 +16,7 @@
         <input type="submit" value="Submit" id="submit">
     </form>
     <br>
-    <ul class="weather-location">
+    <ul id="currentWeather">
         <li>Loading Weather...</li>
     </ul>
 
@@ -26,6 +26,7 @@
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
+    <script src="weather.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
