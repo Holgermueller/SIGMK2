@@ -18,16 +18,20 @@ $(document).ready(() => {
 			method: 'GET',
 			success: data => {
 				console.log(data);
+				$('#currentLocation').append(`<h3>${data.name}</h3>`);
 				// convert temps from kelvin:
-					let K = parseFloat(data.main.temp);
-					let kToF = (((K - 273.15) * 1.8) + 32);
-					let F = Math.round(kToF);
-					let kToC = K - 273.15;
-					let C = Math.round(kToC)
-					$('#currentWeather').append(`Temp: ${F}  F / ${C}  C`)
-						.append(`Humidity: ${data.main.humidity} %`);
+				let K = parseFloat(data.main.temp);
+				let kToF = (((K - 273.15) * 1.8) + 32);
+				let F = Math.round(kToF);
+				let kToC = K - 273.15;
+				let C = Math.round(kToC)
+				$('#currentWeather').append(`<div>Temp: ${F}  F / ${C}  C</div>`)
+					.append(`<div>${data.weather[0].main}</div>`)
+					.append(`<h5>${data.weather[0].description}</h5>`)
+					.append(`<div>Humidity: ${data.main.humidity} %</div>`);
+
 			}
-		})
+		});
 	}
 });
 
