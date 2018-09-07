@@ -5,12 +5,6 @@ $(document).ready(() => {
 	$('#submitCityName').on('click', e => {
 		e.preventDefault();
 		let cityName = $('#forcastLocation').val();
-		console.log(cityName);
-	});
-
-	function showWeather() {
-		const cityName = $('#forecastLocation').val();
-
 
 		let url = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&APPID=' + APIKey;
 
@@ -50,5 +44,17 @@ $(document).ready(() => {
 
 			}
 		});
-	}
+
+		// get 5-day forecast
+		let forecastURL = 'http://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&APPID=' + APIKey;
+
+		$.ajax({
+			url: forecastURL,
+			method: 'GET',
+			success: data => {
+				console.log(data);
+			}
+		})
+
+	});
 });
