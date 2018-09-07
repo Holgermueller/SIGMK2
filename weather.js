@@ -2,16 +2,17 @@ $(document).ready(() => {
 
 	const APIKey = '94d5b3ebbc302231ae85460cfe0af984';
 
-	navigator.geolocation ?
-		navigator.geolocation.getCurrentPosition(showPosition) :
-		console.log('not supported');
+	$('#submitCityName').on('click', e => {
+		e.preventDefault();
+		let cityName = $('#forcastLocation').val();
+		console.log(cityName);
+	});
 
-	function showPosition(position) {
-		const Lat = position.coords.latitude;
-		const Long = position.coords.longitude;
+	function showWeather() {
+		const cityName = $('#forecastLocation').val();
 
 
-		let url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + Lat + '&lon=' + Long + '&APPID=' + APIKey;
+		let url = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&APPID=' + APIKey;
 
 		$.ajax({
 			url: url,
