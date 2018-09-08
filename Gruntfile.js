@@ -22,6 +22,6 @@ module.exports = grunt => {
         }
     });
     grunt.loadNpmTasks('grunt-contrib-less');
-    grung.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.registerTask('default', ['less', 'watch']);
 }

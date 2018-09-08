@@ -1,5 +1,1 @@
-.header {
-    position: absolute;
-    border: 2px solid black;
-    z-index: 6px;
-}
+.header{position:relative;z-index:3;width:100%;background-color:gray;margin:0%}.main{margin-top:5%}
