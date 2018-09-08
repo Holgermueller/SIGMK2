@@ -6,7 +6,7 @@ $(document).ready(() => {
 		e.preventDefault();
 		let cityName = $('#forcastLocation').val();
 
-		let url = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&APPID=' + APIKey;
+		const url = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&APPID=' + APIKey;
 
 		$.ajax({
 			url: url,
@@ -46,15 +46,37 @@ $(document).ready(() => {
 		});
 
 		// get 5-day forecast
-		let forecastURL = 'http://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&APPID=' + APIKey;
+		const forecastURL = 'http://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&APPID=' + APIKey;
 
 		$.ajax({
 			url: forecastURL,
 			method: 'GET',
 			success: data => {
 				console.log(data);
+
+				// map out days of the week
+				let daysOfWeek = ['Sunday',
+				'Monday',
+				'Tuesday',
+				'Wednesday',
+				'Thursday',
+				'Friday',
+				'Saturday'];
+
+				
+			}
+		});
+
+		// get alerts
+
+		const alertsURL = 'http://api.openweathermap.org/data/3.0/triggers?q=' + cityName + '&APPID=' + APIKey;
+
+		$.ajax({
+			url: alertsURL,
+			method: 'GET',
+			success: data => {
+				console.log(data);
 			}
 		})
-
 	});
 });
