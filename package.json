@@ -16,7 +16,12 @@
     "url": "https://github.com/Holgermueller/TimeandTemp/issues"
   },
   "homepage": "https://github.com/Holgermueller/TimeandTemp#readme",
-  "dependencies": {
-    "dotenv": "^6.0.0"
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-contrib-less": "^2.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "jit-grunt": "^0.10.0",
+    "less": "^3.8.1"
   }
 }

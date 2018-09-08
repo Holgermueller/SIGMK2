@@ -13,7 +13,7 @@ $(document).ready(() => {
 			method: 'GET',
 			success: data => {
 				console.log(data);
-				$('#currentLocation').append(`<h3>${data.name}</h3>`);
+				$('#currentLocation').append(`<h3>${data.name}, ${data.sys.country}</h3>`);
 
 				// get icon on DOM
 				let displayIcon = data.weather[0].icon;
@@ -40,6 +40,8 @@ $(document).ready(() => {
 					.append(`<div>Temp: ${F}&#176  F / ${C}&#176  C</div>`)
 					.append(`<h5>Description ${data.weather[0].description}</h5>`)
 					.append(`<div>Humidity: ${data.main.humidity} %</div>`)
+					.append(`<div>Pressure: ${data.main.pressure}</div>`)
+					.append(`<div>Visibility: ${data.visibility}</div>`)
 					.append(`<div>Sunrise: ${sunriseTime} | Sunset: ${sunsetTime}</div>`)
 
 			}
@@ -68,7 +70,6 @@ $(document).ready(() => {
 		});
 
 		// get alerts
-
 		const alertsURL = 'http://api.openweathermap.org/data/3.0/triggers?q=' + cityName + '&APPID=' + APIKey;
 
 		$.ajax({
