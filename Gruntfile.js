@@ -1,5 +1,12 @@
 module.exports = grunt => {
     grunt.initConfig({
+        watch: {
+            files: ['assets/**/*.less'],
+            tasks: ['less'],
+            options: {
+                livereload: true
+            }
+        },
         less: {
             development: {
                 options: {
@@ -10,14 +17,6 @@ module.exports = grunt => {
                 files: {
                     './assets/css/style.css': './assets/css/style.less'
                 }
-            }
-        }, watch: {
-            files: ['assets/**/*.less'],
-            tasks: ['less'],
-            options: {
-                spawn: false,
-                reload: true,
-                livereload: true
             }
         }
     });
