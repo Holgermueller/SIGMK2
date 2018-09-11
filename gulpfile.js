@@ -7,5 +7,9 @@ const path = require('path');
 gulp.task('less', () => {
     return gulp.src('./assets/**/*.less')
     .pipe(less())
-    .pipe(gulp.dest('./assets/css'));
+    .pipe(gulp.dest('./assets'));
+});
+
+gulp.task('watch', () => {
+    gulp.watch('')
 });
