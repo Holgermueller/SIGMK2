@@ -18,11 +18,13 @@
   "homepage": "https://github.com/Holgermueller/TimeandTemp#readme",
   "dependencies": {},
   "devDependencies": {
-    "grunt": "^1.0.3",
-    "grunt-contrib-less": "^2.0.0",
-    "grunt-contrib-watch": "^1.1.0",
-    "grunt-express": "^1.4.1",
-    "jit-grunt": "^0.10.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.1.0",
+    "gulp-less": "^4.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify": "^3.0.1",
+    "jshint": "^2.9.6",
     "less": "^3.8.1"
   }
 }
