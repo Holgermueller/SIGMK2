@@ -10,6 +10,10 @@ gulp.task('less', () => {
     .pipe(gulp.dest('./assets'));
 });
 
+// watch files for changes
 gulp.task('watch', () => {
-    gulp.watch('')
+    gulp.watch('./assets/**/*.less', ['less']);
 });
+
+// set default tasks
+gulp.task('default', ['less', 'watch']);
