@@ -37,7 +37,7 @@ function updatingTime() {
 	let currentDay = currentTime.getDate();
 	let year = currentTime.getFullYear();
 
-	let date = day + ' ' + month + ' ' + currentDay + ', ' + year;
+	let date = day + ', ' + month + ' ' + currentDay + ', ' + year;
 	let updatingHours = hours + ':' + minutes + ':' + seconds + ' ';
 
 	document.getElementById('date').innerHTML = date;

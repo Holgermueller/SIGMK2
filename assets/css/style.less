@@ -1,12 +1,37 @@
+// color palette
+@main-color: #DCD7D7;
+@main-font-color: #0F9CA6;
+
+// padding
+@header-footer-padding: 2px;
+
 .header {
     position: relative;
     z-index: 3;
     width: 100%;
-    background-color: blue;
+    background-color: @main-color;
     margin: 0%;
     border-bottom: 1px;
+    padding: @header-footer-padding;
+    color: @main-font-color;
+}
+
+.date {
+    margin-left: 2%;
+}
+
+.time {
+    margin-left: 87%;
+    margin-top: -6%;
 }
 
 .main {
     margin-top: 5%;
+}
+
+.footer {
+    background-color: @main-color;
+    text-align: center;
+    padding: @header-footer-padding;
+    color: @main-font-color;
 }

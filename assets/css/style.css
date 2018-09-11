@@ -1,11 +1,1 @@
-.header {
-  position: relative;
-  z-index: 3;
-  width: 100%;
-  background-color: blue;
-  margin: 0%;
-  border-bottom: 1px;
-}
-.main {
-  margin-top: 5%;
-}
+.header{position:relative;z-index:3;width:100%;background-color:#dcd7d7;margin:0;border-bottom:1px;padding:2px;color:#0f9ca6}.date{margin-left:2%}.time{margin-left:87%;margin-top:-6%}.main{margin-top:5%}.footer{background-color:#dcd7d7;text-align:center;padding:2px;color:#0f9ca6}

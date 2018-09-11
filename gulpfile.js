@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const less = require('gulp-less');
 const bs = require('browser-sync').create();
+const cleanCSS = require('gulp-clean-css');
 
 // set up browser-sync
 gulp.task('browser-sync', () => {
@@ -15,6 +16,13 @@ gulp.task('browser-sync', () => {
 gulp.task('less', () => {
     return gulp.src('./assets/**/*.less')
     .pipe(less())
+    .pipe(gulp.dest('./assets'));
+});
+
+// clean up css
+gulp.task('minify-css', () => {
+    return gulp.src('./assets/**/*.css')
+    .pipe(cleanCSS())
     .pipe(gulp.dest('./assets'));
 });
 
