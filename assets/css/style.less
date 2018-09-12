@@ -1,19 +1,24 @@
 // color palette
-@main-color: #DCD7D7;
-@main-font-color: #0F9CA6;
+@main-color: #C0C0C0;
+@main-font-color: #008080;
 
 // padding
 @header-footer-padding: 2px;
 
+.body {
+    background-color: #ACFCFE;
+}
+
 .header {
-    position: relative;
-    z-index: 3;
+    position: absolute;
     width: 100%;
     background-color: @main-color;
+    top: 0;
+    left: 0;
     margin: 0%;
-    border-bottom: 1px;
     padding: @header-footer-padding;
     color: @main-font-color;
+    box-shadow:  0 4px 8px 0 @main-font-color;
 }
 
 .date {
@@ -21,17 +26,43 @@
 }
 
 .time {
-    margin-left: 87%;
-    margin-top: -6%;
+    margin-left: 91%;
+    margin-top: -4%;
 }
 
 .main {
-    margin-top: 5%;
+    margin-top: 10%;
+}
+
+.location-form {
+    text-align: center;
+    padding: 4px;
+    background-color: rgba(192, 192, 192, .5);
+    box-shadow:  0 4px 8px 0 @main-font-color;
+    width: 35%;
+    margin-left: 33%
+}
+
+.query-location {
+    padding-bottom: 9px;
+}
+
+.alerts {
+    border-top: 2px solid @main-color;
+    text-align: center;   
+    padding-bottom: 5%;
 }
 
 .footer {
+    position: fixed;
+    width: 100%;
     background-color: @main-color;
     text-align: center;
+    margin: 0;
+    bottom: 0;
+    left: 0;
     padding: @header-footer-padding;
     color: @main-font-color;
 }
+
+// media queries

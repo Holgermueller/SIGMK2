@@ -29,6 +29,7 @@ gulp.task('minify-css', () => {
 // watch files for changes
 gulp.task('watch', () => {
     gulp.watch('./assets/**/*.less', ['less']).on('change', bs.reload);
+    gulp.watch('./assets/**/*.css', ['minify-css']).on('change');
 });
 
 // set default tasks

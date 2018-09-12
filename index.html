@@ -10,29 +10,40 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-<body>
+<body class="body">
     <header class="header">
         <h2 id="date" class="date"></h2>
         <h2 id="time" class="time"></h2>
     </header>
 
     <main class="main">
-        <h3>Enter location</h3>
-        <form class="query-location" id="queryLocation">
-            <input type="text" id="forcastLocation" placeholder="Enter City, Country" name="location" required>
-            <input type="submit" value="Submit" id="submitCityName">
-        </form>
+        <div class="location-form">
+            <h3>Enter location</h3>
+            <form class="query-location" id="queryLocation">
+                <input type="text" id="forcastLocation" placeholder="Enter City, Country" name="location" required>
+                <input type="submit" value="Submit" id="submitCityName">
+            </form>
+        </div>
         <br>
-        <h2>Current Weather</h2>
-        <div id="currentLocation"></div>
-        <div id="weatherIcon"><img id="icon" src="" alt="weather icon"></div>
-        <div id="currentWeather"></div>
+        <div>
+            <div>
+                <h2>Current Weather</h2>
+                <div id="currentLocation"></div>
+                <div id="weatherIcon"><img id="icon" src="" alt="weather icon"></div>
+                <div id="currentWeather"></div>
+            </div>
+            <br>
+            <div>
+                <h2>Forecast</h2>
+                <div id="forecast"></div>
+            </div>
+        </div>
+
         <br>
-        <h2>Forecast</h2>
-        <div id="forecast"></div>
-        <br>
-        <h2>Alerts</h2>
-        <div id="alerts"></div>
+        <div class="alerts">
+            <h2>Alerts</h2>
+            <div id="alerts"></div>
+        </div>
     </main>
 
     <footer class="footer">&copy; Holger Mueller 2018</footer>
