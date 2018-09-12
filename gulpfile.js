@@ -2,6 +2,8 @@ const gulp = require('gulp');
 const less = require('gulp-less');
 const bs = require('browser-sync').create();
 const cleanCSS = require('gulp-clean-css');
+const rename = require('gulp-rename');
+const uglify = require('gulp-uglify-es').default;
 
 // set up browser-sync
 gulp.task('browser-sync', () => {
@@ -14,16 +16,24 @@ gulp.task('browser-sync', () => {
 
 // compile less files
 gulp.task('less', () => {
-    return gulp.src('./assets/**/*.less')
-    .pipe(less())
-    .pipe(gulp.dest('./assets'));
+    gulp.src('./assets/**/*.less')
+        .pipe(less())
+        .pipe(gulp.dest('./assets'));
 });
 
 // clean up css
 gulp.task('minify-css', () => {
-    return gulp.src('./assets/**/*.css')
-    .pipe(cleanCSS())
-    .pipe(gulp.dest('./assets'));
+    gulp.src('./assets/**/*.css')
+        .pipe(cleanCSS())
+        .pipe(gulp.dest('./assets'));
+});
+
+// uglify js files
+gulp.task('uglify', () => {
+    gulp.src('./js/weather/weather.js')
+        .pipe(rename('weather.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('./js/weather/'));
 });
 
 // watch files for changes
