@@ -38,7 +38,7 @@ $(document).ready(() => {
 
 				$('#currentWeather').append(`<div>${data.weather[0].main}</div>`)
 					.append(`<div>Temp: ${F}&#176  F / ${C}&#176  C</div>`)
-					.append(`<h5>Description ${data.weather[0].description}</h5>`)
+					.append(`<h5>Description: ${data.weather[0].description}</h5>`)
 					.append(`<div>Humidity: ${data.main.humidity} %</div>`)
 					.append(`<div>Pressure: ${data.main.pressure}</div>`)
 					.append(`<div>Visibility: ${data.visibility}</div>`)
@@ -54,7 +54,7 @@ $(document).ready(() => {
 			url: forecastURL,
 			method: 'GET',
 			success: data => {
-				console.log(data);
+				console.log(data.list[0]);
 
 				// map out days of the week
 				let daysOfWeek = ['Sunday',
@@ -64,6 +64,13 @@ $(document).ready(() => {
 				'Thursday',
 				'Friday',
 				'Saturday'];
+
+				// get icons on dom
+				let forecastIcon = data.list[0].weather[0].icon;
+				let forecastIconURL = 'http://openweathermap.org/img/w/' + forecastIcon + '.png';
+				$('#forecastIcon').attr('src', forecastIconURL);
+
+				$('#forecast').append(`<div>${}</div>`)
 
 				
 			}
