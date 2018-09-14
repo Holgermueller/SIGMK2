@@ -12,7 +12,7 @@ $(document).ready(() => {
 			url: url,
 			method: 'GET',
 			success: data => {
-				console.log(data);
+				// console.log(data);
 				$('#currentLocation').append(`<h3>${data.name}, ${data.sys.country}</h3>`);
 
 				// get icon on DOM
@@ -54,25 +54,28 @@ $(document).ready(() => {
 			url: forecastURL,
 			method: 'GET',
 			success: data => {
-				console.log(data.list[0]);
+				console.log(data);
 
 				// map out days of the week
 				let daysOfWeek = ['Sunday',
-				'Monday',
-				'Tuesday',
-				'Wednesday',
-				'Thursday',
-				'Friday',
-				'Saturday'];
+					'Monday',
+					'Tuesday',
+					'Wednesday',
+					'Thursday',
+					'Friday',
+					'Saturday'];
 
 				// get icons on dom
-				let forecastIcon = data.list[0].weather[0].icon;
-				let forecastIconURL = 'http://openweathermap.org/img/w/' + forecastIcon + '.png';
-				$('#forecastIcon').attr('src', forecastIconURL);
+				let forecastIconsVariable = data.list.splice(0, 7).forEach(e => {
+					let forecastIcons = e.weather[0].icon;
+					let forecastIconURL = 'http://openweathermap.org/img/w/' + forecastIcons + '.png';
+					$('#forecastIcon').append(`<div><img id="" src=${forecastIconURL} alt="weather icon"></div>`)
+						.attr('src', forecastIconURL);
+				});
 
-				$('#forecast').append(`<div>${}</div>`)
+				// $('#forecast').append(`<div>${}</div>`)
 
-				
+
 			}
 		});
 
@@ -83,7 +86,7 @@ $(document).ready(() => {
 			url: alertsURL,
 			method: 'GET',
 			success: data => {
-				console.log(data);
+				// console.log(data);
 			}
 		})
 	});
