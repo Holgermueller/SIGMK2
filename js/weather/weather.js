@@ -65,28 +65,41 @@ $(document).ready(() => {
 					'Friday',
 					'Saturday'];
 
+					// map out months
+					let months = [
+						'January',
+						'February',
+						'March',
+						'April',
+						'May',
+						'June',
+						'July',
+						'August',
+						'September',
+						'October',
+						'November',
+						'December'
+					];
+
 				// get icons on dom
-				let forecastVariable = data.list.splice(0, 7).forEach(e => {
+				let forecastVariable = data.list.forEach(e => {
 					// get date from timestamp
 					let date = new Date(e.dt * 1000);
-					let day = date.getDay();
-					console.log(date);
+					let day = daysOfWeek[date.getDay()];
+					let month = months[date.getMonth()];
+					let forecastDate = date.getDate();
 
+					// append info to DOM
 					let forecastIcons = e.weather[0].icon;
 					let main = e.weather[0].main;
 					let description = e.weather[0].description;
 					let forecastIconURL = 'http://openweathermap.org/img/w/' + forecastIcons + '.png';
-					$('#forecast').append(`<div>${day}</div>`)
+					$('#forecast').append(`<div class="forecast">${day}, ${month} ${forecastDate}</div>`)
 						.append(`<div><img id="" src=${forecastIconURL} alt="weather icon"></div>`)
 						.attr('src', forecastIconURL)
 						.append(`<div>${main}</div>`)
-						.append(`<div>Description: ${description}</div>`)
-						.append(`<br>`)
+						.append(`<div class="description">Description: ${description}</div>`)
 				});
-
-				// $('#forecast').append(`<div>${}</div>`)
-
-
 			}
 		});
 
