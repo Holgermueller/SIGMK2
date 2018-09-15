@@ -66,11 +66,22 @@ $(document).ready(() => {
 					'Saturday'];
 
 				// get icons on dom
-				let forecastIconsVariable = data.list.splice(0, 7).forEach(e => {
+				let forecastVariable = data.list.splice(0, 7).forEach(e => {
+					// get date from timestamp
+					let date = new Date(e.dt * 1000);
+					let day = date.getDay();
+					console.log(date);
+
 					let forecastIcons = e.weather[0].icon;
+					let main = e.weather[0].main;
+					let description = e.weather[0].description;
 					let forecastIconURL = 'http://openweathermap.org/img/w/' + forecastIcons + '.png';
-					$('#forecastIcon').append(`<div><img id="" src=${forecastIconURL} alt="weather icon"></div>`)
-						.attr('src', forecastIconURL);
+					$('#forecast').append(`<div>${day}</div>`)
+						.append(`<div><img id="" src=${forecastIconURL} alt="weather icon"></div>`)
+						.attr('src', forecastIconURL)
+						.append(`<div>${main}</div>`)
+						.append(`<div>Description: ${description}</div>`)
+						.append(`<br>`)
 				});
 
 				// $('#forecast').append(`<div>${}</div>`)
