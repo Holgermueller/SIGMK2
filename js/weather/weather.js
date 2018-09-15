@@ -65,21 +65,21 @@ $(document).ready(() => {
 					'Friday',
 					'Saturday'];
 
-					// map out months
-					let months = [
-						'January',
-						'February',
-						'March',
-						'April',
-						'May',
-						'June',
-						'July',
-						'August',
-						'September',
-						'October',
-						'November',
-						'December'
-					];
+				// map out months
+				let months = [
+					'January',
+					'February',
+					'March',
+					'April',
+					'May',
+					'June',
+					'July',
+					'August',
+					'September',
+					'October',
+					'November',
+					'December'
+				];
 
 				// get icons on dom
 				let forecastVariable = data.list.forEach(e => {
@@ -88,6 +88,19 @@ $(document).ready(() => {
 					let day = daysOfWeek[date.getDay()];
 					let month = months[date.getMonth()];
 					let forecastDate = date.getDate();
+					let hour = date.getHours()%12;
+					let minutes = date.getMinutes();
+					minutes = minutes < 10 ? '0' + minutes : minutes;
+
+					// get forecast high
+					let kHigh = parseFloat(e.main.temp_max);
+					let kHighToFHigh = (((kHigh - 273.15) * 1.8) + 32);
+					let highF = Math.round(kHighToFHigh);
+
+					//get forecast low
+					let kLow = parseFloat(e.main.temp_min);
+					let kLowToFLow = (((kLow - 273.15) * 1.8) + 32);
+					let lowF = Math.round(kLowToFLow);
 
 					// append info to DOM
 					let forecastIcons = e.weather[0].icon;
@@ -95,8 +108,11 @@ $(document).ready(() => {
 					let description = e.weather[0].description;
 					let forecastIconURL = 'http://openweathermap.org/img/w/' + forecastIcons + '.png';
 					$('#forecast').append(`<div class="forecast">${day}, ${month} ${forecastDate}</div>`)
+					.append(`<div>${hour}:${minutes}</div>`)
 						.append(`<div><img id="" src=${forecastIconURL} alt="weather icon"></div>`)
 						.attr('src', forecastIconURL)
+						.append(`<div>High: ${highF}&#176 | Low: ${lowF}&#176</div>`)
+						.append(`<div>Humidity: ${e.main.humidity}%</div>`)
 						.append(`<div>${main}</div>`)
 						.append(`<div class="description">Description: ${description}</div>`)
 				});
