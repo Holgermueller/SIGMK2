@@ -43,7 +43,6 @@ $(document).ready(() => {
 					.append(`<div>Pressure: ${data.main.pressure}</div>`)
 					.append(`<div>Visibility: ${data.visibility}</div>`)
 					.append(`<div>Sunrise: ${sunriseTime} | Sunset: ${sunsetTime}</div>`)
-
 			}
 		});
 
@@ -88,7 +87,7 @@ $(document).ready(() => {
 					let day = daysOfWeek[date.getDay()];
 					let month = months[date.getMonth()];
 					let forecastDate = date.getDate();
-					let hour = date.getHours()%12;
+					let hour = date.getHours() % 12;
 					let minutes = date.getMinutes();
 					minutes = minutes < 10 ? '0' + minutes : minutes;
 
@@ -107,14 +106,18 @@ $(document).ready(() => {
 					let main = e.weather[0].main;
 					let description = e.weather[0].description;
 					let forecastIconURL = 'http://openweathermap.org/img/w/' + forecastIcons + '.png';
-					$('#forecast').append(`<div class="forecast">${day}, ${month} ${forecastDate}</div>`)
-					.append(`<div>${hour}:${minutes}</div>`)
-						.append(`<div><img id="" src=${forecastIconURL} alt="weather icon"></div>`)
+					$('#forecast').append(`<div class="forecast-date">
+					<div class="">${day}, ${month} ${forecastDate}</div>
+						<div>${hour}:${minutes}</div>
+						</div>`)
+						.append(`<div><img class="icon" src=${forecastIconURL} alt="weather icon"></div>`)
 						.attr('src', forecastIconURL)
-						.append(`<div>High: ${highF}&#176 | Low: ${lowF}&#176</div>`)
-						.append(`<div>Humidity: ${e.main.humidity}%</div>`)
-						.append(`<div>${main}</div>`)
-						.append(`<div class="description">Description: ${description}</div>`)
+						.append(`<div class="forecast-data">
+						<div class="forecast-temp">High: ${highF}&#176 | Low: ${lowF}&#176</div>
+						<div class="forecast-humidity">Humidity: ${e.main.humidity}%</div>
+						<div class="main-forecast">${main}</div>
+						<div class="forecast-description">Description: ${description}</div>
+						</div>`);
 				});
 			}
 		});
@@ -126,7 +129,7 @@ $(document).ready(() => {
 			url: alertsURL,
 			method: 'GET',
 			success: data => {
-				// console.log(data);
+				console.log(data);
 			}
 		})
 	});
