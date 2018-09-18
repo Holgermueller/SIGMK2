@@ -55,6 +55,11 @@ $(document).ready(() => {
 			success: data => {
 				console.log(data);
 
+				$('#forecast').append(`<div class="forecast-banner">
+				<h3>${data.city.name}, ${data.city.country}</h3>
+				<h4></h4>
+				</div>`)
+
 				// map out days of the week
 				let daysOfWeek = ['Sunday',
 					'Monday',
@@ -106,17 +111,20 @@ $(document).ready(() => {
 					let main = e.weather[0].main;
 					let description = e.weather[0].description;
 					let forecastIconURL = 'http://openweathermap.org/img/w/' + forecastIcons + '.png';
-					$('#forecast').append(`<div class="forecast-date">
-					<div class="">${day}, ${month} ${forecastDate}</div>
+					$('#forecast').append(`<div class="single-forecast-div">
+					<div class="forecast-date">
+					<div class="time-data">
+					<div>${day}, ${month} ${forecastDate}</div>
 						<div>${hour}:${minutes}</div>
-						</div>`)
-						.append(`<div><img class="icon" src=${forecastIconURL} alt="weather icon"></div>`)
-						.attr('src', forecastIconURL)
-						.append(`<div class="forecast-data">
+						</div>
+						</div>
+						<div><img class="icon" src=${forecastIconURL} alt="weather icon"></div>
+						<div class="forecast-data">
 						<div class="forecast-temp">High: ${highF}&#176 | Low: ${lowF}&#176</div>
 						<div class="forecast-humidity">Humidity: ${e.main.humidity}%</div>
 						<div class="main-forecast">${main}</div>
 						<div class="forecast-description">Description: ${description}</div>
+						</div>
 						</div>`);
 				});
 			}
