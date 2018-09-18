@@ -12,13 +12,14 @@ $(document).ready(() => {
 			url: url,
 			method: 'GET',
 			success: data => {
-				// console.log(data);
-				$('#currentLocation').append(`<h3>${data.name}, ${data.sys.country}</h3>`);
+				// create banner for location
+				$('#currentWeather').append(`<div id="currentLocation" class="current-location-banner">
+				<h3>${data.name}, ${data.sys.country}</h3>
+				 </div>`)
 
 				// get icon on DOM
 				let displayIcon = data.weather[0].icon;
 				let weatherIconURL = 'http://openweathermap.org/img/w/' + displayIcon + '.png';
-				$('#icon').attr('src', weatherIconURL);
 
 				// convert temps from kelvin:
 				let K = parseFloat(data.main.temp);
@@ -36,13 +37,30 @@ $(document).ready(() => {
 				let dateStamp = new Date(sunsetStamp * 1000);
 				let sunsetTime = dateStamp.toLocaleTimeString();
 
-				$('#currentWeather').append(`<div>${data.weather[0].main}</div>`)
-					.append(`<div>Temp: ${F}&#176  F / ${C}&#176  C</div>`)
-					.append(`<h5>Description: ${data.weather[0].description}</h5>`)
-					.append(`<div>Humidity: ${data.main.humidity} %</div>`)
-					.append(`<div>Pressure: ${data.main.pressure}</div>`)
-					.append(`<div>Visibility: ${data.visibility}</div>`)
-					.append(`<div>Sunrise: ${sunriseTime} | Sunset: ${sunsetTime}</div>`)
+				$('#currentWeather').append(`
+				<div class="current-info-main">
+
+
+				<div>${data.weather[0].main}</div>
+
+					<div>Temp: ${F}&#176  F / ${C}&#176  C</div>
+
+					<div>Description: ${data.weather[0].description}</div>
+					</div>
+
+					<div id="weatherIcon" class="current-icon"><img id="icon" src="${weatherIconURL}" alt="weather icon"></div>
+
+					<div class="supplemental-current-info">
+					<div>Humidity: ${data.main.humidity} %</div>
+
+					<div>Pressure: ${data.main.pressure}</div>
+
+					<div>Visibility: ${data.visibility}</div>
+
+					<div>Sunrise: ${sunriseTime}</div>
+
+					<div>Sunset: ${sunsetTime}</div>
+					</div>`)
 			}
 		});
 	});
