@@ -30,10 +30,10 @@ gulp.task('minify-css', () => {
 
 // uglify js files
 gulp.task('uglify', () => {
-    gulp.src('./js/weather/weather.js')
-        .pipe(rename('weather.min.js'))
+    gulp.src('./js/forecast/forecast.js')
+        .pipe(rename('forecast.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('./js/weather/'));
+        .pipe(gulp.dest('./js/forecast/'));
 });
 
 // watch files for changes
