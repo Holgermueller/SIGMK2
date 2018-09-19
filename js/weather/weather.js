@@ -37,28 +37,28 @@ $(document).ready(() => {
 				let dateStamp = new Date(sunsetStamp * 1000);
 				let sunsetTime = dateStamp.toLocaleTimeString();
 
+				// convert visibility into miles
+				let apiVis = data.visibility;
+				let milesVis = apiVis * 0.000621371192;
+				let miles = Math.round(milesVis);
+
+				// convert pressure to inches
+				let apiPress = data.main.pressure;
+				let inchesPressure = apiPress * 0.02953;
+				let inches = Math.round(inchesPressure);
+
 				$('#currentWeather').append(`
 				<div class="current-info-main">
-
-
 				<div>${data.weather[0].main}</div>
-
 					<div>Temp: ${F}&#176  F / ${C}&#176  C</div>
-
 					<div>Description: ${data.weather[0].description}</div>
 					</div>
-
 					<div id="weatherIcon" class="current-icon"><img id="icon" src="${weatherIconURL}" alt="weather icon"></div>
-
 					<div class="supplemental-current-info">
 					<div>Humidity: ${data.main.humidity} %</div>
-
-					<div>Pressure: ${data.main.pressure}</div>
-
-					<div>Visibility: ${data.visibility}</div>
-
+					<div>Pressure: ${inches} Inches</div>
+					<div>Visibility: ${miles} Miles</div>
 					<div>Sunrise: ${sunriseTime}</div>
-
 					<div>Sunset: ${sunsetTime}</div>
 					</div>`)
 			}
