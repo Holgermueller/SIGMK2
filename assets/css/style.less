@@ -1,12 +1,24 @@
 // color palette
 @main-color: #C0C0C0;
 @main-font-color: #008080;
+@data-background-color: ghostwhite;
 
 // padding
 @header-footer-padding: 2px;
 
+// styles
 .body {
-    background-color: #ACFCFE;
+    background-color: black;
+    animation-name: sunrise-sunset;
+    animation-duration: 60s
+}
+
+@keyframes sunrise-sunset {
+    0% {background-color: black;}
+    25% {background-color: orange;}
+    50% {background-color: lightcyan;}
+    75% {background-color: red;}
+    100% {background-color: black;}
 }
 
 .header {
@@ -64,12 +76,15 @@
     box-shadow:  0 4px 8px 0 @main-font-color;
 }
 
+.current-info-all {
+    background-color: @data-background-color;
+}
+
 .current-info-main {
     margin: 5% 0 0 15%;
     font-weight: 700;
     line-height: 2;
     font-size: 20px;
-
 }
 
 .current-icon {

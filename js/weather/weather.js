@@ -47,7 +47,7 @@ $(document).ready(() => {
 				let inchesPressure = apiPress * 0.02953;
 				let inches = Math.round(inchesPressure);
 
-				$('#currentWeather').append(`
+				$('#currentWeather').append(`<div class="current-info-all">
 				<div class="current-info-main">
 				<div>${data.weather[0].main}</div>
 					<div>Temp: ${F}&#176  F / ${C}&#176  C</div>
@@ -60,6 +60,7 @@ $(document).ready(() => {
 					<div>Visibility: ${miles} Miles</div>
 					<div>Sunrise: ${sunriseTime}</div>
 					<div>Sunset: ${sunsetTime}</div>
+					</div>
 					</div>`)
 			}
 		});
