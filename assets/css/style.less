@@ -52,6 +52,10 @@
     padding: 10px;
     background-color: rgba(255, 255, 255, .7);
     margin: 0;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .location-form {
@@ -60,7 +64,8 @@
     background-color: rgba(255, 255, 255, .7);
     box-shadow:  0 4px 8px 0 @main-font-color;
     width: 35%;
-    margin-left: 33%
+    margin-left: 33%;
+    border-radius: 15px;
 }
 
 .query-location {
@@ -74,10 +79,15 @@
     text-align: center;
     padding: 1px;
     box-shadow:  0 4px 8px 0 @main-font-color;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .current-info-all {
     background-color: @data-background-color;
+    width: 85%;
+    margin-left: 7%;
+    border-radius: 15px;
 }
 
 .current-info-main {
@@ -85,6 +95,7 @@
     font-weight: 700;
     line-height: 2;
     font-size: 20px;
+    padding-top: 4px;
 }
 
 .current-icon {
@@ -94,9 +105,9 @@
 }
 
 .supplemental-current-info {
-    margin-top: -10%;
+    margin: -12% 0 0 61%;
     line-height: 26px;
-    margin-left: 67%;
+    padding: 4px 0;
 }
 
 .supplemental-current-info > div {
@@ -120,10 +131,12 @@
     border-top: 1px solid black;
     margin-left: 15px;
     padding: 6px;
+    background-color: @data-background-color;
 }
 
-.single-forecast-div:hover {
+.single-forecast-div:hover > div {
     box-shadow:  0 4px 8px 0 @main-font-color;
+    z-index: 5;
 }
 
 .time-data {
