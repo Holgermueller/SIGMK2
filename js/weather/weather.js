@@ -14,6 +14,8 @@ $(document).ready(() => {
 			success: data => {
 				// reset form
 				$('#queryLocation')[0].reset();
+				// remove info from previous search
+				$('#currentWeather').empty();
 				// create banner for location
 				$('#currentWeather').append(`<div id="currentLocation" class="current-location-banner">
 				<h3>${data.name}, ${data.sys.country}</h3>
