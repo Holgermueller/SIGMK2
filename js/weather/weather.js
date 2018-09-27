@@ -6,7 +6,7 @@ $(document).ready(() => {
 		e.preventDefault();
 		let cityName = $('#forcastLocation').val();
 
-		const url = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&APPID=' + APIKey;
+		const url = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&APPID=' + APIKey;
 
 		$.ajax({
 			url: url,
@@ -19,7 +19,7 @@ $(document).ready(() => {
 
 				// get icon on DOM
 				let displayIcon = data.weather[0].icon;
-				let weatherIconURL = 'http://openweathermap.org/img/w/' + displayIcon + '.png';
+				let weatherIconURL = 'https://openweathermap.org/img/w/' + displayIcon + '.png';
 
 				// convert temps from kelvin:
 				let K = parseFloat(data.main.temp);

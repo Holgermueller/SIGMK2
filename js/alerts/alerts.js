@@ -6,7 +6,7 @@ $(document).ready(() => {
         let cityName = $('#forcastLocation').val();
     
         // get alerts
-        const alertsURL = 'http://api.openweathermap.org/data/3.0/triggers?q=' + cityName + '&APPID=' + APIKey;
+        const alertsURL = 'https://api.openweathermap.org/data/3.0/triggers?q=' + cityName + '&APPID=' + APIKey;
     
         $.ajax({
             url: alertsURL,

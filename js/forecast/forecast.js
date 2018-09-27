@@ -6,7 +6,7 @@ $(document).ready(() => {
 		let cityName = $('#forcastLocation').val();
 
 		// get 5-day forecast
-		const forecastURL = 'http://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&APPID=' + APIKey;
+		const forecastURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&APPID=' + APIKey;
 
 		$.ajax({
 			url: forecastURL,
@@ -69,7 +69,7 @@ $(document).ready(() => {
 					let forecastIcons = e.weather[0].icon;
 					let main = e.weather[0].main;
 					let description = e.weather[0].description;
-					let forecastIconURL = 'http://openweathermap.org/img/w/' + forecastIcons + '.png';
+					let forecastIconURL = 'https://openweathermap.org/img/w/' + forecastIcons + '.png';
 					$('#forecast').append(`<div class="single-forecast-div">
 					<div class="forecast-date">
 					<div class="time-data">
