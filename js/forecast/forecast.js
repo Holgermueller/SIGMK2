@@ -73,11 +73,12 @@ $(document).ready(() => {
 					$('#forecast').append(`<div class="single-forecast-div">
 					<div class="forecast-date">
 					<div class="time-data">
-					<div>${day}, ${month} ${forecastDate}</div>
+					<div>${day}</div>
+					<div>${month} ${forecastDate}</div>
 						<div>${hour}:${minutes}</div>
 						</div>
 						</div>
-						<div><img class="icon" src=${forecastIconURL} alt="weather icon"></div>
+						<div class="icon"><img src=${forecastIconURL} alt="weather icon"></div>
 						<div class="forecast-data">
 						<div class="forecast-temp">High: ${highF}&#176 | Low: ${lowF}&#176</div>
 						<div class="forecast-humidity">Humidity: ${e.main.humidity}%</div>

@@ -12,6 +12,8 @@ $(document).ready(() => {
 			url: url,
 			method: 'GET',
 			success: data => {
+				// reset form
+				$('#queryLocation')[0].reset();
 				// create banner for location
 				$('#currentWeather').append(`<div id="currentLocation" class="current-location-banner">
 				<h3>${data.name}, ${data.sys.country}</h3>
