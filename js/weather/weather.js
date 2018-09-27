@@ -17,7 +17,7 @@ $(document).ready(() => {
 				// remove info from previous search
 				$('#currentWeather').empty();
 				// create banner for location
-				$('#currentWeather').append(`<div id="currentLocation" class="current-location-banner">
+				$('#currentWeather').append(`<div id="locationDropdown" class="dropdown-content">
 				<h3>${data.name}, ${data.sys.country}</h3>
 				 </div>`)
 
