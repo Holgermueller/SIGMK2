@@ -12,7 +12,10 @@ $(document).ready(() => {
 			url: forecastURL,
 			method: 'GET',
 			success: data => {
-				console.log(data);
+				// reset form
+				$('#queryLocation')[0].reset();
+				// remove info from previous search
+				$('#currentWeather').empty();
 
 				// map out days of the week
 				let daysOfWeek = ['Sunday',
