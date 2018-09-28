@@ -6,7 +6,7 @@
 // padding
 @header-footer-padding: 2px;
 
-// styles
+// global styles
 .body {
     background-color: black;
     animation-name: sunrise-sunset;
@@ -62,7 +62,7 @@
     background-color: rgba(255, 255, 255, .7);
     box-shadow:  0 4px 8px 0 @main-font-color;
     width: 35%;
-    margin-left: 33%;
+    margin: 0 0 2% 33%;
     border-radius: 15px;
 }
 
@@ -84,7 +84,7 @@
 .current-info-all {
     background-color: @data-background-color;
     width: 85%;
-    margin-bottom: 0 0 4% 7%;
+    margin: 0 0 4% 7%;
     border-radius: 15px;
 }
 
@@ -109,7 +109,7 @@
 }
 
 .supplemental-current-info > div {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #000;
     width: 35%;
 }
 
@@ -119,7 +119,7 @@
 
 // forecast styles
 .forecast-banner {
-    background-color: #ffffff;
+    background-color: #fff;
     text-align: center;
     padding: 10px;
     box-shadow:  0 4px 8px 0 @main-font-color;
@@ -127,31 +127,39 @@
 
 .single-forecast-div {
     border-top: 1px solid black;
-    margin-left: 15px;
     padding: 6px;
     background-color: @data-background-color;
 }
 
-.single-forecast-div:hover > div {
-    box-shadow:  0 4px 8px 0 @main-font-color;
+.single-forecast-div:hover {
+    box-shadow: inset 0 0 10px @main-font-color;;
+    background-color: @data-background-color;
     z-index: 5;
 }
 
-.time-data {
-    display: inline;
+.single-forecast-div:last-child {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .forecast-date {
-    padding: 3%;
+    padding: 2%;
     float: left;
-}
-
-.forecast-description {
-    padding-bottom: 4px;
+    line-height: 22px;
 }
 
 .icon {
-    margin: 3% 77% 0 0;
+    margin: 3% 77% 1% 15%;
+}
+
+.forecast-data {
+    margin-top: -81px;
+    float: right;
+    margin-right: 59%;
+}
+
+.forecast {
+    margin-bottom: 4%;
 }
 
 // alerts

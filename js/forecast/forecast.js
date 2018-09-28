@@ -14,11 +14,6 @@ $(document).ready(() => {
 			success: data => {
 				console.log(data);
 
-				$('#forecast').append(`<div class="forecast-banner">
-				<h3>${data.city.name}, ${data.city.country}</h3>
-				<h4></h4>
-				</div>`)
-
 				// map out days of the week
 				let daysOfWeek = ['Sunday',
 					'Monday',
@@ -70,7 +65,7 @@ $(document).ready(() => {
 					let main = e.weather[0].main;
 					let description = e.weather[0].description;
 					let forecastIconURL = 'https://openweathermap.org/img/w/' + forecastIcons + '.png';
-					$('#forecast').append(`<div class="single-forecast-div">
+					$('#forecastdropdown').append(`<div class="single-forecast-div">
 					<div class="forecast-date">
 					<div class="time-data">
 					<div>${day}</div>
