@@ -8,18 +8,18 @@
 
 // global styles
 .body {
-    background-color: black;
+    //background-color: black;
     animation-name: sunrise-sunset;
     animation-duration: 60s
 }
 
-@keyframes sunrise-sunset {
-    0% {background-color: black;}
-    25% {background-color: orange;}
-    50% {background-color: lightcyan;}
-    75% {background-color: red;}
-    100% {background-color: black;}
-}
+// @keyframes sunrise-sunset {
+//     0% {background-color: black;}
+//     25% {background-color: orange;}
+//     50% {background-color: lightcyan;}
+//     75% {background-color: red;}
+//     100% {background-color: black;}
+// }
 
 .header {
     position: absolute;
@@ -31,6 +31,20 @@
     padding: @header-footer-padding;
     color: @main-font-color;
     box-shadow:  0 4px 8px 0 @main-font-color;
+}
+.dropdown {
+  background-color: @main-color;
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown-content a {
+  display: none;
+  text-decoration: none;
+}
+
+.dropdown-content a:visited {
+  color: black;
 }
 
 .date {
@@ -71,51 +85,23 @@
 }
 
 // current weather
-.dropdown-content {
-    font-size: 24px;
-    background-color: #ffffff;
-    text-align: center;
-    padding: 1px;
-    box-shadow:  0 4px 8px 0 @main-font-color;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+.flex-container {
+  display: flex;
 }
 
-.current-info-all {
-    background-color: @data-background-color;
-    width: 85%;
-    margin: 0 0 4% 7%;
-    border-radius: 15px;
+.flex-container > div {
+  padding: 2px;
 }
 
-.current-info-main {
-    margin: 5% 0 0 15%;
-    font-weight: 700;
-    line-height: 2;
-    font-size: 20px;
-    padding-top: 4px;
-}
 
-.current-icon {
-    float: right;
-    margin-right: 47%;
-    margin-top: -7%;
-}
 
-.supplemental-current-info {
-    margin: -12% 0 0 61%;
-    line-height: 26px;
-    padding: 4px 0;
-}
 
-.supplemental-current-info > div {
-    border-bottom: 1px solid #000;
-    width: 35%;
-}
 
-.supplemental-current-info > div:last-child {
-    border-bottom: none;
-}
+
+
+
+
+
 
 // forecast styles
 .forecast-banner {

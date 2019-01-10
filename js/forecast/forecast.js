@@ -15,7 +15,7 @@ $(document).ready(() => {
 				// reset form
 				$('#queryLocation')[0].reset();
 				// remove info from previous search
-				$('#currentWeather').empty();
+				$('#forecastWeather').empty();
 
 				// map out days of the week
 				let daysOfWeek = ['Sunday',
