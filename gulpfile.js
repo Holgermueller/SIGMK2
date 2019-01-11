@@ -40,6 +40,7 @@ gulp.task('uglify', () => {
 gulp.task('watch', () => {
     gulp.watch('./assets/**/*.less', ['less']).on('change', bs.reload);
     gulp.watch('./assets/**/*.css', ['minify-css']).on('change');
+    gulp.watch('./js/**/*.js', ['uglify']).on('change');
 });
 
 // set default tasks
