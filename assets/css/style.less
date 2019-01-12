@@ -2,6 +2,7 @@
 @main-color: #C0C0C0;
 @main-font-color: #008080;
 @data-background-color: ghostwhite;
+@second-text-color: #080505;
 
 // padding
 @header-footer-padding: 2px;
@@ -19,10 +20,12 @@
     box-shadow:  0 4px 8px 0 @main-font-color;
 }
 .dropdown {
-  background-color: black;
-  float: left;
+  background-color: @second-text-color;
+  float: right;
   overflow: hidden;
   padding: 2%;
+  top: 0;
+  right: 0;
 }
 
 .dropdown .dropbtn {
@@ -52,19 +55,15 @@
 }
 
 .dropdown-content a:visited {
-  color: black;
+  color: @second-text-color;
 }
 
-.date {
-    margin-left: 4%;
-    padding-left: 2%
+.date-time {
+    padding: 1% 0 0 2%;
+    color: @second-text-color;
 }
 
-.time {
-    margin-left: 91%;
-    margin-top: -4%;
-}
-
+// Main
 .main {
     margin-top: 10%;
 }
