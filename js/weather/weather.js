@@ -1,10 +1,8 @@
 $(document).ready(() => {
-
   const APIKey = '94d5b3ebbc302231ae85460cfe0af984';
 
   $(document).on('click', '#submitCityName', e => {
     e.preventDefault();
-    //$('#currentWeather').empty();
     let cityName = $('#forcastLocation').val();
     const queryURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&APPID=' + APIKey;
     $.ajax({
@@ -12,69 +10,57 @@ $(document).ready(() => {
       method: 'GET'
     }).then(data => {
       $("#currentWeather").empty();
-      console.log(data);
       $("#currentLocation").append('<h3>').text(`${data.name}, ${data.sys.country}`)
         .addClass("current-location");
 
-      $("#currentWeather").append("<p>hello</p>");
-    })
+      let K = parseFloat(data.main.temp);
+      let kToF = (((K - 273.15) * 1.8) + 32);
+      let F = Math.round(kToF);
+      let kToC = K - 273.15;
+      let C = Math.round(kToC);
+      let tempDiv = $(`<div>Temp: ${F}&#176  F / ${C}&#176  C</div>`).addClass("temp-div");
 
+      let sunriseStamp = parseFloat(data.sys.sunrise);
+      let stampDate = new Date(sunriseStamp * 1000);
+      let sunriseTime = stampDate.toLocaleTimeString();
+      let sunrise = $(`<div>Sunrise: ${sunriseTime}</div>`);
 
+      let sunsetStamp = parseFloat(data.sys.sunset);
+      let dateStamp = new Date(sunsetStamp * 1000);
+      let sunsetTime = dateStamp.toLocaleTimeString();
+      let sunset = $(`<div>Sunrise: ${sunsetTime}</div>`);
 
-    // $.ajax({
-    //   url: url,
-    //   method: 'GET',
-    //   success: data => {
-    //     console.log(data);
-    //     $('#queryLocation')[0].reset();
-    //     $('#locationDropdown').append(`<div id="locationDropdown" class="dropdown-content">
-    // 		<h3>${data.name}, ${data.sys.country}</h3>
-    // 		</div>`)
+      let timeDiv = $("<div>").addClass("time-div")
+        .append(sunrise).append(sunset);
 
-    //     let displayIcon = data.weather[0].icon;
-    //     let weatherIconURL = 'https://openweathermap.org/img/w/' + displayIcon + '.png';
+      let apiVis = data.visibility;
+      let milesVis = apiVis * 0.000621371192;
+      let miles = Math.round(milesVis);
+      let visibility = $(`<div>Visibility: ${miles} Miles</div>`);
 
-    //     let K = parseFloat(data.main.temp);
-    //     let kToF = (((K - 273.15) * 1.8) + 32);
-    //     let F = Math.round(kToF);
-    //     let kToC = K - 273.15;
-    //     let C = Math.round(kToC);
+      let apiPress = data.main.pressure;
+      let inchesPressure = apiPress * 0.02953;
+      let inches = Math.round(inchesPressure);
+      let pressure = $(`<div>Pressure: ${inches} Inches</div>`);
 
-    //     let sunriseStamp = parseFloat(data.sys.sunrise);
-    //     let stampDate = new Date(sunriseStamp * 1000);
-    //     let sunriseTime = stampDate.toLocaleTimeString();
+      let humidity = $(`<div>Humidity: ${data.main.humidity} %</div>`);
 
-    //     let sunsetStamp = parseFloat(data.sys.sunset);
-    //     let dateStamp = new Date(sunsetStamp * 1000);
-    //     let sunsetTime = dateStamp.toLocaleTimeString();
+      let description = $("<div>").text(data.weather[0].description);
 
-    //     let apiVis = data.visibility;
-    //     let milesVis = apiVis * 0.000621371192;
-    //     let miles = Math.round(milesVis);
+      let supplementalInfo = $("<div>").addClass("supplemental-current-info")
+        .append(description).append(timeDiv).append(visibility)
+        .append(pressure).append(humidity);
 
-    //     let apiPress = data.main.pressure;
-    //     let inchesPressure = apiPress * 0.02953;
-    //     let inches = Math.round(inchesPressure);
-    //     console.log(data.weather[0].main);
+      let currentWeatherConditions = data.weather[0].main;
+      let currentConditionsDiv = $(`<div class='current-conditions'>Current Conditions: ${currentWeatherConditions}</div>`);
 
-    //     $("#currentWeather").append('<div>Hello</div>');
+      let displayIcon = data.weather[0].icon;
+      let weatherIconURL = 'https://openweathermap.org/img/w/' + displayIcon + '.png';
+      let weatherIcon = $("<img alt='img'>").attr('src', weatherIconURL).addClass("weather-icon");
 
-    //     $('#currentWeather').append(`<div class="current-info-all">
-    // 		<div class="current-info-main">
-    //     <div>${data.weather[0].main}</div>
-    // 			<div>Temp: ${F}&#176  F / ${C}&#176  C</div>
-    // 			<div>Description: ${data.weather[0].description}</div>
-    // 			</div>
-    // 			<div id="weatherIcon" class="current-icon"><img id="icon" src="${weatherIconURL}" alt="weather icon"></div>
-    // 			<div class="supplemental-current-info">
-    // 			<div>Humidity: ${data.main.humidity} %</div>
-    // 			<div>Pressure: ${inches} Inches</div>
-    // 			<div>Visibility: ${miles} Miles</div>
-    // 			<div>Sunrise: ${sunriseTime}</div>
-    // 			<div>Sunset: ${sunsetTime}</div>
-    // 			</div>
-    // 			</div>`)
-    //   }
-    // });
+      $("#currentWeather").append(currentConditionsDiv).append(weatherIcon)
+        .append(tempDiv)
+        .append(supplementalInfo);
+    });
   });
 });

@@ -7,20 +7,6 @@
 @header-footer-padding: 2px;
 
 // global styles
-.body {
-    //background-color: black;
-    animation-name: sunrise-sunset;
-    animation-duration: 60s
-}
-
-// @keyframes sunrise-sunset {
-//     0% {background-color: black;}
-//     25% {background-color: orange;}
-//     50% {background-color: lightcyan;}
-//     75% {background-color: red;}
-//     100% {background-color: black;}
-// }
-
 .header {
     position: absolute;
     width: 100%;
@@ -108,7 +94,7 @@
 
 // current weather
 .current-weather {
-  width: 25%;
+  min-width: 25%;
   border-radius: 15px;
   box-shadow:  0 4px 8px 0 @main-font-color;
   text-align: center;
@@ -120,54 +106,20 @@
   background-color: #fff;
 }
 
-// forecast styles
-.forecast-banner {
-    background-color: #fff;
-    text-align: center;
-    padding: 10px;
-    box-shadow:  0 4px 8px 0 @main-font-color;
+.weather-icon {
+  background-color: skyblue;
 }
 
-.single-forecast-div {
-    border-top: 1px solid black;
-    padding: 6px;
-    background-color: @data-background-color;
+.temp-div {
+  display: inline-flex;
 }
 
-.single-forecast-div:hover {
-    box-shadow: inset 0 0 10px @main-font-color;;
-    background-color: @data-background-color;
-    z-index: 5;
+.supplemental-current-info {
+  text-align: right;
 }
 
-.single-forecast-div:last-child {
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-}
-
-.forecast-date {
-    padding: 2%;
-    float: left;
-    line-height: 22px;
-}
-
-.icon {
-    margin: 3% 77% 1% 15%;
-}
-
-.forecast-data {
-    margin-top: -81px;
-    float: right;
-    margin-right: 59%;
-}
-
-.forecast {
-    margin-bottom: 4%;
-}
-
-// alerts
-.alerts {
-    padding-bottom: 5%;
+.supplemental-current-info > div {
+  padding: 4px;
 }
 
 // footer
