@@ -2,16 +2,21 @@ $(document).ready(() => {
 
   const APIKey = '94d5b3ebbc302231ae85460cfe0af984';
 
-  $('#submitCityName').on('click', e => {
+  $(document).on('click', '#submitCityName', e => {
     e.preventDefault();
-    $('#currentWeather').empty();
+    //$('#currentWeather').empty();
     let cityName = $('#forcastLocation').val();
     const queryURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&APPID=' + APIKey;
     $.ajax({
       url: queryURL,
       method: 'GET'
     }).then(data => {
+      $("#currentWeather").empty();
       console.log(data);
+      $("#currentLocation").append('<h3>').text(`${data.name}, ${data.sys.country}`)
+        .addClass("current-location");
+
+      $("#currentWeather").append("<p>hello</p>");
     })
 
 

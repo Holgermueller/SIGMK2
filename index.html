@@ -8,7 +8,8 @@
   <title>Time and Temp App</title>
   <!--stylesheets-->
   <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
 </head>
 
 <body class="body">
@@ -38,11 +39,12 @@
     </section>
     <br>
 
-    <section class="current-weather">
+    <section class="current-weather-container">
       <h2 class="section-header">Current Weather</h2>
-      <hr>
-      <div>current location</div>
-      <div class="flex-container" id="currentWeather">Current weather</div>
+      <div class="current-weather">
+        <div id="currentLocation"></div>
+        <div class="weather-info" id="currentWeather"></div>
+      </div>
     </section>
 
     <!-- <section>
@@ -61,14 +63,14 @@
 
   </main>
 
-  <footer class="footer">&copy; Holger Mueller 2018</footer>
+  <footer class="footer">&copy; Holger Mueller 2018-2019</footer>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
-  <script src="./js/weather/weather.js"></script>
-  <script src="./js/forecast/forecast.min.js"></script>
-  <!-- <script src="./js/alerts/alerts.js"></script> -->
   <script src="./js/time/time.min.js"></script>
+  <script src="./js/weather/weather.js"></script>
+  <script src="./js/forecast/forecast.js"></script>
+  <!-- <script src="./js/alerts/alerts.js"></script> -->
 </body>
 
 </html>
