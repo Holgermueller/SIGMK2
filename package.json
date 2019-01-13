@@ -16,7 +16,10 @@
     "url": "https://github.com/Holgermueller/TimeandTemp/issues"
   },
   "homepage": "https://github.com/Holgermueller/TimeandTemp#readme",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.18.9"
+  },
   "devDependencies": {
     "browser-sync": "^2.24.7",
     "eslint": "^5.5.0",
