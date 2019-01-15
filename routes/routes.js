@@ -6,6 +6,7 @@ module.exports = app => {
 
   app.get('/forecast', (req, res) => {
     res.render('forecast');
-  })
+  });
 
+  // No code below this line
 };
