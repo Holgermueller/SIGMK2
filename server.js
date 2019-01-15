@@ -4,7 +4,7 @@ const EXPHBS = require('express-handlebars');
 const APP = EXPRESS();
 const PORT = process.env.PORT || 8080;
 
-APP.use(EXPRESS.static(__dirname + 'public'));
+APP.use(EXPRESS.static('public'));
 
 APP.engine('handlebars', EXPHBS({ defaultLayout: 'main'}));
 APP.set('view engine', 'handlebars');
