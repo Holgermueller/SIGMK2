@@ -16,14 +16,14 @@ gulp.task('browser-sync', () => {
 
 // compile less files
 gulp.task('less', () => {
-    gulp.src('./assets/**/*.less')
+    gulp.src('./public/assets/**/*.less')
         .pipe(less())
         .pipe(gulp.dest('./assets'));
 });
 
 // clean up css
 gulp.task('minify-css', () => {
-    gulp.src('./assets/**/*.css')
+    gulp.src('./public/assets/**/*.css')
         .pipe(cleanCSS())
         .pipe(gulp.dest('./assets'));
 });
@@ -38,8 +38,8 @@ gulp.task('uglify', () => {
 
 // watch files for changes
 gulp.task('watch', () => {
-    gulp.watch('./assets/**/*.less', ['less']).on('change', bs.reload);
-    gulp.watch('./assets/**/*.css', ['minify-css']).on('change');
+    gulp.watch('./public/assets/**/*.less', ['less']).on('change', bs.reload);
+    gulp.watch('./public/assets/**/*.css', ['minify-css']).on('change');
     gulp.watch('./js/**/*.js', ['uglify']).on('change');
 });
 
