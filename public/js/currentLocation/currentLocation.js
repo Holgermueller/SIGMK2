@@ -36,7 +36,7 @@ $(document).ready(() => {
       let sunsetStamp = parseFloat(data.sys.sunset);
       let dateStamp = new Date(sunsetStamp * 1000);
       let sunsetTime = dateStamp.toLocaleTimeString();
-      let sunset = $(`<div>Sunrise: ${sunsetTime}</div>`);
+      let sunset = $(`<div>Sunset: ${sunsetTime}</div>`);
 
       let timeDiv = $("<div>").addClass("time-div")
         .append(sunrise).append(sunset);
