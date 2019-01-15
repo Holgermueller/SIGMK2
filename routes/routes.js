@@ -4,4 +4,8 @@ module.exports = app => {
     res.render('index');
   });
 
+  app.get('/forecast', (req, res) => {
+    res.render('forecast');
+  })
+
 };
