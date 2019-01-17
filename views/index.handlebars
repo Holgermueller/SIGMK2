@@ -1,15 +1,31 @@
+<style>
+  .current-weather-container {
+    margin-top: 22%;
+  }
+
+  .forecast-links {
+    list-style-type: none;
+    display: inline-flex;
+  }
+
+  .search-another-location {
+    margin-bottom: 10%;
+  }
+
+</style>
+
 <section class="current-weather-container">
   <h2 class="section-header">Your Current Weather</h2>
   <div class="current-weather">
     <div id="currentLocation"></div>
     <div class="weather-info" id="currentWeather"></div>
 
-    <div class="forcasts">
-      <ul>
+    <div class="forecasts">
+      <ul class="forecast-links">
         <li>
           <input type="button" value="5 DAY" id="fiveDayForecast" onclick="location.href='/fiveDayForecast';">
         </li>
-
+        <br>
         <li>
           <input type="button" value="16 DAY" id="sixteenDayForecast" onclick="location.href='/sixteenDayForecast';">
         </li>
@@ -21,7 +37,7 @@
 
 <br>
 
-<section>
+<section class="search-another-location">
   <div class="location-form">
     <h3>Travelling? Check the weather elsewhere</h3>
     <hr>

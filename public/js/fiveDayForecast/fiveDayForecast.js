@@ -1,8 +1,8 @@
-$(document).ready(() => {
+$(document).ready( () => {
   function getCurrentLocation() {
     navigator.geolocation ?
       navigator.geolocation.getCurrentPosition(showPosition) :
-      console.log('Not supported by this browser');
+      alert('Not supported by this browser');
   };
   getCurrentLocation();
 
