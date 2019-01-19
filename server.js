@@ -1,6 +1,7 @@
 const EXPRESS = require('express');
 const EXPHBS = require('express-handlebars');
 const lessMiddleware = require('less-middleware');
+const reload = require('reload');
 
 const APP = EXPRESS();
 const PORT = process.env.PORT || 8080;
@@ -16,3 +17,5 @@ require('./routes/routes.js')(APP);
 APP.listen(PORT, () => {
   console.log('server listening on ', PORT);
 });
+reload(APP);
+

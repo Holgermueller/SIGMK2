@@ -22,7 +22,8 @@
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
     "less-middleware": "^3.1.0",
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.18.9",
+    "reload": "^2.4.0"
   },
   "devDependencies": {
     "browser-sync": "^2.24.7",
