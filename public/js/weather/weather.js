@@ -18,7 +18,7 @@ $(document).ready(() => {
       let F = Math.round(kToF);
       let kToC = K - 273.15;
       let C = Math.round(kToC);
-      let tempDiv = $(`<div>Temp: ${F}&#176  F / ${C}&#176  C</div>`).addClass("temp-div");
+      let currentTempDiv = $(`<div>Temp: ${F}&#176  F / ${C}&#176  C</div>`).addClass("temp-div");
 
       let sunriseStamp = parseFloat(data.sys.sunrise);
       let stampDate = new Date(sunriseStamp * 1000);
@@ -59,7 +59,7 @@ $(document).ready(() => {
       let weatherIcon = $("<img alt='img'>").attr('src', weatherIconURL).addClass("weather-icon");
 
       $("#currentWeather").append(currentConditionsDiv).append(weatherIcon)
-        .append(tempDiv)
+        .append(currentTempDiv)
         .append(supplementalInfo);
     });
   });
