@@ -60,14 +60,14 @@ $(document).ready(() => {
         .append(pressure).append(humidity);
 
       let currentWeatherConditions = data.weather[0].main;
-      let currentConditionsDiv = $(`<div class='current-conditions'>Current Conditions: ${currentWeatherConditions}</div>`);
+      let currentConditionsDiv = $(`<div class='current-conditions'>Current Conditions: <br> ${currentWeatherConditions}</div>`);
 
       let displayIcon = data.weather[0].icon;
       let weatherIconURL = 'https://openweathermap.org/img/w/' + displayIcon + '.png';
       let weatherIcon = $("<img alt='img'>").attr('src', weatherIconURL).addClass("weather-icon");
 
-      $("#currentWeather").append(currentConditionsDiv).append(weatherIcon)
-        .append(tempDiv)
+      $("#currentWeather").append(currentConditionsDiv).append(tempDiv)
+      .append(weatherIcon)  
         .append(supplementalInfo);
     });
   }

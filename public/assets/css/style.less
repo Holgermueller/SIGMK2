@@ -9,7 +9,7 @@
 
 // global styles
 .header {
-    position: absolute;
+    position: fixed;
     width: 100%;
     background-color: @main-color;
     top: 0;
@@ -19,6 +19,7 @@
     color: @main-font-color;
     box-shadow:  0 4px 8px 0 @main-font-color;
 }
+
 .dropdown {
   background-color: @second-text-color;
   float: right;
@@ -89,17 +90,27 @@
 }
 
 // current weather
+.current-weather-container {
+  margin-top: 22%;
+}
+
 .current-weather {
-  min-width: 25%;
+  max-width: 75%;
+  margin-left: 12%;
   border-radius: 15px;
   box-shadow:  0 4px 8px 0 @main-font-color;
-  text-align: center;
 }
 
 .current-location {
   padding: 6px 4px 4px 4px;
+  font-size: 1.5em;
   font-weight: bold;
   background-color: #fff;
+  text-align: center;
+}
+
+.current-conditions {
+  font-size: 2em;
 }
 
 .weather-icon {
@@ -116,6 +127,19 @@
 
 .supplemental-current-info > div {
   padding: 4px;
+}
+
+.forecast-links {
+  list-style-type: none;
+  display: inline-flex;
+}
+
+.forecasts {
+  text-align: center;
+}
+
+.search-another-location {
+  margin-bottom: 10%;
 }
 
 // footer
