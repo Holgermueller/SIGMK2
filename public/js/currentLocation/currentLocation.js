@@ -27,12 +27,29 @@ $(document).ready(() => {
       let F = Math.round(kToF);
       let kToC = K - 273.15;
       let C = Math.round(kToC);
-      let currentTempDiv = $(`<div>High: ${F}&#176  F / ${C}&#176  C</div>`).addClass("temp-div");
+      let currentTempDiv = $(`<div>Temp: ${F}&#176  F / ${C}&#176  C</div>`).addClass("temp-div");
+
+      let highK = parseFloat(data.main.temp_max);
+      let highKToF = (((highK - 273.15) * 1.8) + 32);
+      let highF = Math.round(highKToF);
+      let highKToC = highK - 273.15;
+      let highC = Math.round(highKToC);
+      let highTempDiv = $(`<div>High: ${highF}&#176 F / ${highC}&#176 C</div>`).addClass("extra-temps");
+
+      let lowK = parseFloat(data.main.temp_min);
+      let lowKToF = (((lowK - 273.15) * 1.8) + 32);
+      let lowF = Math.round(lowKToF);
+      let lowKToC = lowK - 273.15;
+      let lowC = Math.round(lowKToC);
+      let lowTempDiv = $(`<div>Low: ${lowF}&#176 F / ${lowC}&#176 C</div>`).addClass("extra-temps");
+
+      let allTemps = $("<div>").addClass("all-temps")
+      .append(currentTempDiv).append(highTempDiv).append(lowTempDiv);
 
       let sunriseStamp = parseFloat(data.sys.sunrise);
       let stampDate = new Date(sunriseStamp * 1000);
       let sunriseTime = stampDate.toLocaleTimeString();
-      let sunrise = $(`<div>Sunrise: ${sunriseTime}</div>`);
+      let sunrise = $(`<div>Sunrise: ${sunriseTime}</div>`).addClass("sunrise");
 
       let sunsetStamp = parseFloat(data.sys.sunset);
       let dateStamp = new Date(sunsetStamp * 1000);
@@ -63,11 +80,14 @@ $(document).ready(() => {
       let currentWeatherConditions = data.weather[0].main;
       let currentConditionsDiv = $(`<div class='current-conditions'>Current Conditions: <br> ${currentWeatherConditions}</div>`);
 
+      let currentWeatherInfo = $("<div>").addClass("all-current-info")
+        .append(currentConditionsDiv).append(allTemps);
+
       let displayIcon = data.weather[0].icon;
       let weatherIconURL = 'https://openweathermap.org/img/w/' + displayIcon + '.png';
       let weatherIcon = $("<img alt='img'>").attr('src', weatherIconURL).addClass("weather-icon");
 
-      $("#currentWeather").append(currentConditionsDiv).append(currentTempDiv)
+      $("#currentWeather").append(currentWeatherInfo)
       .append(weatherIcon)  
         .append(supplementalInfo);
     });

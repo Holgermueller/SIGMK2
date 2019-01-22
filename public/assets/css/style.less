@@ -7,7 +7,7 @@
 // padding
 @header-footer-padding: 2px;
 
-// global styles
+// Header
 .header {
     position: fixed;
     width: 100%;
@@ -17,7 +17,21 @@
     margin: 0%;
     padding: @header-footer-padding;
     color: @main-font-color;
-    box-shadow:  0 4px 8px 0 @main-font-color;
+}
+
+.date-time {
+  float: left;
+  padding: 1% 0 0 2%;
+  color: @second-text-color;
+}
+
+.nav-bar {
+  text-decoration: none;
+}
+
+li {
+  text-decoration: none;
+  display: inline;
 }
 
 .dropdown {
@@ -59,11 +73,6 @@
   color: @second-text-color;
 }
 
-.date-time {
-    padding: 1% 0 0 2%;
-    color: @second-text-color;
-}
-
 // Main
 // Background colors for main
 // .dawn {
@@ -98,7 +107,6 @@
     text-align: center;
     padding: 4px;
     background-color: rgba(255, 255, 255, .7);
-    box-shadow:  0 4px 8px 0 @main-font-color;
     width: 35%;
     margin: 0 0 2% 33%;
     border-radius: 15px;
@@ -110,15 +118,19 @@
 
 // current weather
 .current-weather-container {
-  margin-top: 22%;
+  margin-top: 20%;
+}
+
+.all-current-info {
+  float: left;
 }
 
 .current-weather {
+  min-height: 214px;
   max-width: 75%;
   margin-left: 12%;
   border-radius: 15px;
   background-color: rgba(255, 255, 255, .7);
-  box-shadow:  0 4px 8px 0 @main-font-color;
 }
 
 .current-location {
@@ -144,16 +156,33 @@
   width: 100px;
 }
 
+.all-temps {
+  padding: 4px 0;
+}
+
+.temp-div, .extra-temps {
+  padding: 4px 0;
+}
+
 .temp-div {
-  display: inline-flex;
+  font-weight: bold;
+}
+
+.extra-temps {
+  font-size: .85em;
 }
 
 .supplemental-current-info {
+  float: right;
   text-align: right;
 }
 
 .supplemental-current-info > div {
   padding: 4px;
+}
+
+.sunrise {
+  padding-bottom: 6px;
 }
 
 .forecast-links {

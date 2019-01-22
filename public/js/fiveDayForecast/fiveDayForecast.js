@@ -16,7 +16,7 @@ $(document).ready( () => {
       url: forecastURL,
       method: "GET"
     }).then(forecastData => {
-      console.log(forecastData);
+      //console.log(forecastData);
       $("#forecastWeather").empty();
       $("#forecastLocation").append('<h3>').text(`${forecastData.city.name}`);
 

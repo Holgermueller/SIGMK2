@@ -1,19 +1,32 @@
-  <header class="header">
-    <div>
-      <a href="/">
-      <p>HOME</p>
-      </a>
+<header class="header">
+  <div class="date-time">
+    <h2 id="date" class="date"></h2>
+    <h2 id="time" class="time"></h2>
+  </div>
+
+  <div class="nav-bar">
+    <ul>
+      <li>
+        <a href="/">
+          <p>HOME</p>
+        </a>
+      </li>
+      <li>
+        <input type="button" value="5 DAY" id="fiveDayForecast" onclick="location.href='/fiveDayForecast';">
+      </li>
+      <br>
+      <li>
+        <input type="button" value="16 DAY" id="sixteenDayForecast" onclick="location.href='/sixteenDayForecast';">
+      </li>
+    </ul>
+  </div>
+
+  <div class="dropdown">
+    <button class="dropbtn">Locations <i class="fas fa-caret-down"></i></button>
+    <div class="dropdown-content">
+      <a href="#">location 1</a>
+      <a href="#">location 2</a>
+      <a href="#">location 2</a>
     </div>
-    <div class="dropdown">
-      <button class="dropbtn">Locations <i class="fas fa-caret-down"></i></button>
-      <div class="dropdown-content">
-        <a href="#">location 1</a>
-        <a href="#">location 2</a>
-        <a href="#">location 2</a>
-      </div>
-    </div>
-    <div class="date-time">
-      <h2 id="date" class="date"></h2>
-      <h2 id="time" class="time"></h2>
-    </div>
-  </header>
+  </div>
+</header>
