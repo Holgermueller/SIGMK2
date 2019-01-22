@@ -1,6 +1,6 @@
 // color palette
 @main-color: #C0C0C0;
-@main-font-color: #008080;
+@main-font-color: aliceblue;
 @data-background-color: ghostwhite;
 @second-text-color: #080505;
 
@@ -8,30 +8,33 @@
 @header-footer-padding: 2px;
 
 // Header
-.header {
+.nav-bar {
     position: fixed;
     width: 100%;
     background-color: @main-color;
     top: 0;
     left: 0;
-    margin: 0%;
-    padding: @header-footer-padding;
-    color: @main-font-color;
 }
 
-.date-time {
-  float: left;
-  padding: 1% 0 0 2%;
-  color: @second-text-color;
-}
-
-.nav-bar {
+ul, a {
   text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 li {
-  text-decoration: none;
   display: inline;
+  padding: 2%;
+}
+
+.forecast-button {
+  padding: 2% 0 0 0;
+  background: none;
+  border: none;
 }
 
 .dropdown {
@@ -46,7 +49,7 @@ li {
 .dropdown .dropbtn {
   border: none;
   outline: none;
-  color: aliceblue;
+  color: @main-font-color;
   margin: 0;
   background-color: inherit;
 }
@@ -73,7 +76,7 @@ li {
   color: @second-text-color;
 }
 
-// Main
+// Current Weather
 // Background colors for main
 // .dawn {
 //   background-image: linear-gradient(#00FAFF, #FFCD00);
@@ -96,11 +99,21 @@ li {
 }
 
 .section-header {
-    text-align: center;
-    padding: 10px;
-    margin-top: 20%;
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, .7);
+  text-align: center;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, .7);
+}
+
+.date-time {
+  width: fit-content;
+  margin-left: 39%;
+  margin-top: 7%;
+  .section-header;
+}
+
+.current-time {
+  font-weight: bold;
 }
 
 .location-form {
@@ -114,11 +127,6 @@ li {
 
 .query-location {
     padding-bottom: 9px;
-}
-
-// current weather
-.current-weather-container {
-  margin-top: 20%;
 }
 
 .all-current-info {
@@ -185,15 +193,6 @@ li {
   padding-bottom: 6px;
 }
 
-.forecast-links {
-  list-style-type: none;
-  display: inline-flex;
-}
-
-.forecasts {
-  text-align: center;
-}
-
 .search-another-location {
   margin-bottom: 10%;
 }
@@ -212,3 +211,4 @@ li {
 }
 
 // media queries
+
