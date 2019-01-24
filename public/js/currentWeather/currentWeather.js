@@ -44,7 +44,7 @@ $(document).ready(() => {
       let lowTempDiv = $(`<div>Low: ${lowF}&#176 F / ${lowC}&#176 C</div>`).addClass("extra-temps");
 
       let allTemps = $("<div>").addClass("all-temps")
-      .append(currentTempDiv).append(highTempDiv).append(lowTempDiv);
+        .append(currentTempDiv).append(highTempDiv).append(lowTempDiv);
 
       let sunriseStamp = parseFloat(data.sys.sunrise);
       let stampDate = new Date(sunriseStamp * 1000);
@@ -88,8 +88,38 @@ $(document).ready(() => {
       let weatherIcon = $("<img alt='img'>").attr('src', weatherIconURL).addClass("weather-icon");
 
       $("#currentWeather").append(currentWeatherInfo)
-      .append(weatherIcon)  
+        .append(weatherIcon)
         .append(supplementalInfo);
+
+      moment();
+      let time = moment().hour();
+
+      function dawnBackground() {
+        $('#body').css({ "background-image": "linear-gradient(#00FAFF, #FFCD00)" });
+      }
+
+      function dayBackground() {
+        $('#body').css({ "background-color": "#00EBFF" });
+      }
+
+      function sunsetBackground() {
+        $('#body').css({ "background-image": "linear-gradient(#5F0066, #FF0500)" });
+      }
+
+      function nightBackground() {
+        $('#body').css({ "background-color": "#280066" });
+      }
+
+      if (time > 7 && time < 17) {
+        dayBackground();
+      } else if (time > 17 && time < 18) {
+        sunsetBackground();
+      } else if (time > 6 && time < 7) {
+        dawnBackground();
+      } else {
+        nightBackground();
+      }
+
     });
   }
 });
