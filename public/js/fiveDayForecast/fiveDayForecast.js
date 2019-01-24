@@ -16,9 +16,11 @@ $(document).ready( () => {
       url: forecastURL,
       method: "GET"
     }).then(forecastData => {
-      //console.log(forecastData);
+      console.log(forecastData);
       $("#forecastWeather").empty();
-      $("#forecastLocation").append('<h3>').text(`${forecastData.city.name}`);
+      $("#forecastLocation").append('<h3>').text(`${forecastData.city.name}, ${forecastData.city.country}`);
+
+      //$("#forecastWeather").append('<h1>').text(`${}`)
 
     });
   }
