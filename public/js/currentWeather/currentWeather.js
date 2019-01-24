@@ -92,6 +92,7 @@ $(document).ready(() => {
 
       moment();
       let time = moment().hour();
+      console.log(time);
 
       function dawnBackground() {
         $('#body').css({ "background-image": "linear-gradient(#00FAFF, #FFCD00)" });
@@ -108,13 +109,13 @@ $(document).ready(() => {
       function nightBackground() {
         $('#body').css({ "background-color": "#280066" });
       }
-
-      if (time > 7 && time < 17) {
-        dayBackground();
-      } else if (time > 17 && time < 18) {
-        sunsetBackground();
-      } else if (time > 6 && time < 7) {
+      
+      if (time >= 6 && time <= 7) {
         dawnBackground();
+      } else if (time > 7 && time < 17) {
+        dayBackground();
+      } else if (time >= 17 && time <= 18) {
+        sunsetBackground();
       } else {
         nightBackground();
       }
