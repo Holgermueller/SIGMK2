@@ -92,7 +92,6 @@ $(document).ready(() => {
 
       moment();
       let time = moment().hour();
-      console.log(time);
 
       function dawnBackground() {
         $('#body').css({ "background-image": "linear-gradient(#00FAFF, #FFCD00)" });

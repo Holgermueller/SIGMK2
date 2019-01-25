@@ -1,4 +1,4 @@
-$(document).ready( () => {
+$(document).ready(() => {
   function getCurrentLocation() {
     navigator.geolocation ?
       navigator.geolocation.getCurrentPosition(showPosition) :
@@ -11,7 +11,7 @@ $(document).ready( () => {
     const FORECASTLAT = position.coords.latitude;
     const FORECASTLONG = position.coords.longitude;
     const forecastURL = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + FORECASTLAT + '&lon=' + FORECASTLONG + '&APPID=' + APIKey;
-    
+
     $.ajax({
       url: forecastURL,
       method: "GET"
@@ -21,7 +21,14 @@ $(document).ready( () => {
       $("#forecastLocation").append('<h3>').text(`${forecastData.city.name}, ${forecastData.city.country}`);
 
       //$("#forecastWeather").append('<h1>').text(`${}`)
+      let daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
+      $.map(forecastData.list, eachForecastDay => {
+        let forecastWeather = $("<div>").addClass("forecast-weather").text(eachForecastDay.weather[0].main);
+
+        $("#forecastWeather").append(forecastWeather);
+      });
     });
   }
 });
