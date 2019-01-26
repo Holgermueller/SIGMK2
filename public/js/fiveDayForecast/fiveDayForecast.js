@@ -18,14 +18,15 @@ $(document).ready(() => {
     }).then(forecastData => {
       console.log(forecastData);
       $("#forecastWeather").empty();
-      $("#forecastLocation").append('<h3>').text(`${forecastData.city.name}, ${forecastData.city.country}`);
+      $("#forecastLocation").append('<h3>').text(`${forecastData.city.name}, ${forecastData.city.country}`)
+      .addClass("forecast-location");
 
       //$("#forecastWeather").append('<h1>').text(`${}`)
       let daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
       let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
       $.map(forecastData.list, eachForecastDay => {
-        let forecastWeather = $("<div>").addClass("forecast-weather").text(eachForecastDay.weather[0].main);
+        let forecastWeather = $("<div>").addClass("single-forecast-weather-div").text(eachForecastDay.weather[0].main);
 
         $("#forecastWeather").append(forecastWeather);
       });
