@@ -35,14 +35,16 @@ $(document).ready(() => {
         let forecastDateAndTime = $('<div>').addClass('forecast-date-and-time')
           .append(day + ', ' + month + ' ' + forecastDate + ' ' + hour + ':' + minutes);
 
-        let forecastConditions = $('<div>').text(eachForecastDay.weather[0].main).addClass('forecast-conditions');
+        let forecastConditions = $('<div>').append('Conditions: ' + eachForecastDay.weather[0].main).addClass('forecast-conditions');
+
+        //let precip = $('<div>').text(eachForecastDay.snow).addClass('precip');
 
         let kMain = parseFloat(eachForecastDay.main.temp);
         let kMaintoFMain = (((kMain - 273.15) * 1.8) + 32);
         let mainF = Math.round(kMaintoFMain);
         let kMaintoCMain = kMain - 273.15;
         let mainC = Math.round(kMaintoCMain);
-        let mainTemps = $(`<div>${mainF}&#176 F / ${mainC}&#176 C</div>`).addClass('main-temps')
+        let mainTemps = $(`<div>Temps: ${mainF}&#176 F / ${mainC}&#176 C</div>`).addClass('main-temps')
 
         let kHigh = parseFloat(eachForecastDay.main.temp_max);
         let kHighToFHigh = (((kHigh - 273.15) * 1.8) + 32);
@@ -73,7 +75,7 @@ $(document).ready(() => {
           .append(forecastTemps).append(humidity).append(cloudiness);
 
         let daysWeather = $('<div>').addClass('days-weather-main')
-          .append(mainTemps).append(forecastConditions);
+          .append(forecastConditions).append(mainTemps);
 
         let forecastWeather = $("<div>").addClass("single-forecast-weather-div")
           .append(forecastDateAndTime)

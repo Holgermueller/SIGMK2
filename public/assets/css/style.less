@@ -3,6 +3,7 @@
 @main-font-color: aliceblue;
 @data-background-color: ghostwhite;
 @second-text-color: #080505;
+@weather-background-color: rgba(255, 255, 255, .7);
 
 // padding
 @header-footer-padding: 2px;
@@ -95,7 +96,7 @@ li {
   text-align: center;
   padding: 10px;
   border-radius: 15px;
-  background-color: rgba(255, 255, 255, .7);
+  background-color: @weather-background-color;
 }
 
 .date-time {
@@ -112,7 +113,7 @@ li {
 .location-form {
     text-align: center;
     padding: 4px;
-    background-color: rgba(255, 255, 255, .7);
+    background-color: @weather-background-color;
     width: 35%;
     margin: 0 0 2% 33%;
     border-radius: 15px;
@@ -131,7 +132,7 @@ li {
   max-width: 75%;
   margin-left: 12%;
   border-radius: 15px;
-  background-color: rgba(255, 255, 255, .7);
+  background-color: @weather-background-color;
 }
 
 .current-location {
@@ -215,7 +216,7 @@ li {
   border-top-right-radius: 15px;
   max-width: 75%;
   margin-left: 12%;
-  background-color: rgba(255, 255, 255, .7);
+  background-color: @weather-background-color;
 }
 
 .forecast-weather:last-child {
@@ -225,7 +226,12 @@ li {
 }
 
 .single-forecast-weather-div {
+  padding: 1%;
   border-bottom: 1px solid @second-text-color;
+}
+
+.single-forecast-weather-div:last-child {
+  border: none;
 }
 
 .single-forecast-weather-div:hover {
@@ -234,8 +240,39 @@ li {
   box-shadow: 0px 8px rgba(0,0,0,0.5)
 }
 
+.single-forecast-weather-div:last-child:hover {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
 .forecast-date-and-time {
+  background-color: @weather-background-color;
   text-align: center;
+  border-radius: 15px;
+  margin-bottom: 2%;
+}
+
+.days-weather-main {
+  float: left;
+}
+
+.forecast-conditions {
+  font-size: 2em;
+}
+
+.main-temps {
+  font-size: 1.5em;
+}
+
+.forecast-icon {
+  height: 75px;
+  width: 75px;
+  margin: 1% 0 0 18%;
+  float: left;
+}
+
+.extra-info {
+  text-align: right;
 }
 
 // footer
