@@ -1,20 +1,22 @@
-$(document).ready(() => {
+// $(document).ready(() => {
+//   function getCurrentLocation() {
+//     navigator.geolocation ?
+//       navigator.geolocation.getCurrentPosition(showPosition) :
+//       alert('Not supported by this browser');
+//   };
+//   getCurrentLocation();
 
-    const APIKey = '94d5b3ebbc302231ae85460cfe0af984';
-    $('#submitCityName').on('click', e => {
-        e.preventDefault();
-        let cityName = $('#forcastLocation').val();
-    
-        // get alerts
-        const alertsURL = 'https://api.openweathermap.org/data/3.0/triggers?q=' + cityName + '&APPID=' + APIKey;
-    
-        $.ajax({
-            url: alertsURL,
-            method: 'GET',
-            success: data => {
-                console.log(data);
-            }
-        })
-        
-    });
-});
+//   function showPosition(position) {
+//     const APIKey = '94d5b3ebbc302231ae85460cfe0af984';
+//     const ALERTLAT = position.coords.latitude;
+//     const ALERTLONG = position.coords.longitude;
+//     const alertsURL = 'https://api.openweathermap.org/data/3.0/triggers?lat=' + ALERTLAT + '&lon=' + ALERTLONG + '&APPID=' + APIKey;
+
+//     $.ajax({
+//       url: alertsURL,
+//       method: 'GET'
+//     }).then(alertData => {
+//       console.log(alertData);
+//     });
+//   }
+// });
