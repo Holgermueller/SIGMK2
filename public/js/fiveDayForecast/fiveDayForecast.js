@@ -16,12 +16,11 @@ $(document).ready(() => {
       url: forecastURL,
       method: "GET"
     }).then(forecastData => {
-      console.log(forecastData);
+      console.log(forecastData.list[0]);
       $("#forecastWeather").empty();
       $("#forecastLocation").append('<h3>').text(`${forecastData.city.name}, ${forecastData.city.country}`)
         .addClass("forecast-location");
 
-      //$("#forecastWeather").append('<h1>').text(`${}`)
       let daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
       let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -37,6 +36,13 @@ $(document).ready(() => {
           .append(day + ', ' + month + ' ' + forecastDate + ' ' + hour + ':' + minutes);
 
         let forecastConditions = $('<div>').text(eachForecastDay.weather[0].main).addClass('forecast-conditions');
+
+        let kMain = parseFloat(eachForecastDay.main.temp);
+        let kMaintoFMain = (((kMain - 273.15) * 1.8) + 32);
+        let mainF = Math.round(kMaintoFMain);
+        let kMaintoCMain = kMain - 273.15;
+        let mainC = Math.round(kMaintoCMain);
+        let mainTemps = $(`<div>${mainF}&#176 F / ${mainC}&#176 C</div>`).addClass('main-temps')
 
         let kHigh = parseFloat(eachForecastDay.main.temp_max);
         let kHighToFHigh = (((kHigh - 273.15) * 1.8) + 32);
@@ -60,13 +66,17 @@ $(document).ready(() => {
         let forecastIcons = $("<img alt='img'>").attr('src', forcastIconsURL).addClass('forecast-icon');
 
         let humidity = $('<div>').text('Humidity: ' + eachForecastDay.main.humidity + '%');
+        let furtherDescription = $('<div>').text(eachForecastDay.weather[0].description);
+        let cloudiness = $('<div>').text('Clouds: ' + eachForecastDay.clouds.all + '%');
 
-        let extraForecastInfo = $('<div>').addClass('extra-info').append(humidity);
+        let extraForecastInfo = $('<div>').addClass('extra-info').append(furtherDescription)
+          .append(forecastTemps).append(humidity).append(cloudiness);
 
-        let daysWeather = $('<div>').addClass('days-weather-main').append(forecastDateAndTime)
-          .append(forecastConditions).append(forecastTemps);
+        let daysWeather = $('<div>').addClass('days-weather-main')
+          .append(mainTemps).append(forecastConditions);
 
         let forecastWeather = $("<div>").addClass("single-forecast-weather-div")
+          .append(forecastDateAndTime)
           .append(daysWeather).append(forecastIcons).append(extraForecastInfo);
 
         $("#forecastWeather").append(forecastWeather);
