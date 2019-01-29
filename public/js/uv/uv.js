@@ -15,8 +15,29 @@ $(document).ready(_ => {
     $.ajax({
       url: uvURL,
       method: "GET"
-    }).then( uvData => {
+    }).then(uvData => {
       console.log(uvData);
+      let daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+      $.map(uvData, uvArrayItem => {
+        let date = new Date(uvArrayItem.date * 1000);
+        let day = daysOfWeek[date.getDay()];
+        let month = months[date.getMonth()];
+        let uvDate = date.getDate();
+        let dateInfo = $('<div>').addClass('date-info').append(day).append(month + ' ' + uvDate);
+
+        let uvRating = uvArrayItem.value;
+        let ratingColor = $('<div>').addClass('rating-color').text('X');
+        let uvMessage = $('<div>').addClass('uv-message').text('message goes here');
+
+        let uvInfo = $('<div>').append(uvRating).append(ratingColor).append(uvMessage);
+
+        let individualForecastInfo = $('<div>').addClass('ind-frcst-info').append(dateInfo)
+        .append('<hr>').append(uvInfo);
+
+        $('#uvForecast').append(individualForecastInfo);
+      });
     });
   }
 });
