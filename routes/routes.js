@@ -8,8 +8,8 @@ module.exports = app => {
     res.render('fiveDayForecast');
   });
 
-  app.get('/sixteenDayForecast', (req, res) => {
-    res.render('sixteenDayForecast');
+  app.get('/map', (req, res) => {
+    res.render('map');
   });
 
   // No code below this line

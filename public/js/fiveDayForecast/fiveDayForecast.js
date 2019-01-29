@@ -16,7 +16,6 @@ $(document).ready(() => {
       url: forecastURL,
       method: "GET"
     }).then(forecastData => {
-      // console.log(forecastData.list[0]);
       $("#forecastWeather").empty();
       $("#forecastLocation").append('<h3>').text(`${forecastData.city.name}, ${forecastData.city.country}`)
         .addClass("forecast-location");
@@ -36,8 +35,6 @@ $(document).ready(() => {
           .append(day + ', ' + month + ' ' + forecastDate + ' ' + hour + ':' + minutes);
 
         let forecastConditions = $('<div>').append('Conditions: ' + eachForecastDay.weather[0].main).addClass('forecast-conditions');
-
-        //let precip = $('<div>').text(eachForecastDay.snow).addClass('precip');
 
         let kMain = parseFloat(eachForecastDay.main.temp);
         let kMaintoFMain = (((kMain - 273.15) * 1.8) + 32);
