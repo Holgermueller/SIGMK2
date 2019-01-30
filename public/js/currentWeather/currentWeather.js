@@ -17,6 +17,36 @@ $(document).ready(() => {
       url: QUERYURL,
       method: "GET"
     }).then(data => {
+
+      moment();
+      let time = moment().hour();
+
+      function dawnBackground() {
+        $('#body').css({ "background-image": "linear-gradient(#00FAFF, #FFCD00)" });
+      }
+
+      function dayBackground() {
+        $('#body').css({ "background-color": "#00EBFF" });
+      }
+
+      function sunsetBackground() {
+        $('#body').css({ "background-image": "linear-gradient(#5F0066, #FF0500)" });
+      }
+
+      function nightBackground() {
+        $('#body').css({ "background-color": "#280066" });
+      }
+
+      if (time >= 6 && time <= 7) {
+        dawnBackground();
+      } else if (time > 7 && time < 17) {
+        dayBackground();
+      } else if (time >= 17 && time <= 18) {
+        sunsetBackground();
+      } else {
+        nightBackground();
+      }
+      
       $("#currentWeather").empty();
       $("#currentLocation").append('<h3>').text(`${data.name}, ${data.sys.country}`)
         .addClass("current-location");
@@ -89,36 +119,6 @@ $(document).ready(() => {
       $("#currentWeather").append(currentWeatherInfo)
         .append(weatherIcon)
         .append(supplementalInfo);
-
-      moment();
-      let time = moment().hour();
-
-      function dawnBackground() {
-        $('#body').css({ "background-image": "linear-gradient(#00FAFF, #FFCD00)" });
-      }
-
-      function dayBackground() {
-        $('#body').css({ "background-color": "#00EBFF" });
-      }
-
-      function sunsetBackground() {
-        $('#body').css({ "background-image": "linear-gradient(#5F0066, #FF0500)" });
-      }
-
-      function nightBackground() {
-        $('#body').css({ "background-color": "#280066" });
-      }
-      
-      if (time >= 6 && time <= 7) {
-        dawnBackground();
-      } else if (time > 7 && time < 17) {
-        dayBackground();
-      } else if (time >= 17 && time <= 18) {
-        sunsetBackground();
-      } else {
-        nightBackground();
-      }
-
     });
   }
 });

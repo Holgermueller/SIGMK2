@@ -31,12 +31,29 @@ $(document).ready(_ => {
 
         let uvRating = uvArrayItem.value;
         let ratingColor = $('<div>').addClass('rating-color').text('X');
-        let uvMessage = $('<div>').addClass('uv-message').text('message goes here');
+        let uvMessage = $('<div>').addClass('uv-message');
 
         let uvInfo = $('<div>').append(uvRating).append(ratingColor).append(uvMessage);
 
         let individualForecastInfo = $('<div>').addClass('ind-frcst-info').append(dateInfo)
-        .append('<hr>').append(uvInfo);
+          .append('<hr>').append(uvInfo);
+
+        if (uvRating <= 2.9) {
+          $('.rating-color').css({ 'background-color': '#289500' }).css({ 'color': '#289500' });
+          $('.uv-message').text("All's well");
+        } else if (uvRating >= 3.0 && uvRating <= 5.9) {
+          $('.rating-color').css({ 'background-color': '#F7E403' }).css({ 'color': '#F7E403' });
+          $('.uv-message').text("Sunscreen needed");
+        } else if (uvRating >= 6.0 && uvRating <= 7.9) {
+          $('.rating-color').css({ 'background-color': '#F85901' }).css({ 'color': '#F85901' });
+          $('.uv-message').text("Seek cover!");
+        } else if (uvRating >= 8.0 && uvRating <= 10.9) {
+          $('.rating-color').css({ 'background-color': '#D80D1C' }).css({ 'color': '#D80D1C' });
+          $('.uv-message').text("Repent!!");
+        } else {
+          $('.rating-color').css({ 'background-color': '#6B49C7' }).css({ 'color': '#6B49C7' });
+          $('.uv-message').text("Doom is upon you!!");
+        }
 
         $('#uvForecast').append(individualForecastInfo);
       });
