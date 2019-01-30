@@ -2,13 +2,16 @@ const EXPRESS = require('express');
 const EXPHBS = require('express-handlebars');
 const lessMiddleware = require('less-middleware');
 const minify = require('express-minify');
+const uglify = require('uglify-es');
 const reload = require('reload');
 
 const APP = EXPRESS();
 const PORT = process.env.PORT || 8080;
 
 APP.use(lessMiddleware('public'));
-APP.use(minify());
+APP.use(minify({
+  uglifyJsModule: uglify,
+}));
 APP.use(EXPRESS.static('public'));
 
 APP.engine('handlebars', EXPHBS({ defaultLayout: 'main'}));

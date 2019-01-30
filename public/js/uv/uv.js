@@ -25,7 +25,9 @@ $(document).ready(_ => {
         let day = daysOfWeek[date.getDay()];
         let month = months[date.getMonth()];
         let uvDate = date.getDate();
-        let dateInfo = $('<div>').addClass('date-info').append(day).append(month + ' ' + uvDate);
+        let dayOfWeek = $('<div>').addClass('day-of-week').append(day);
+        let dayAndMonth = $('<div>').addClass('day-and-month').append(month + ' ' + uvDate)
+        let dateInfo = $('<div>').addClass('date-info').append(dayOfWeek).append(dayAndMonth);
 
         let uvRating = uvArrayItem.value;
         let ratingColor = $('<div>').addClass('rating-color').text('X');
