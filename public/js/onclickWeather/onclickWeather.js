@@ -113,6 +113,19 @@ $(document).ready(_ => {
       $("#currentWeather").append(currentWeatherInfo)
         .append(weatherIcon)
         .append(supplementalInfo);
+
+        let savedLocations = JSON.parse(localStorage.getItem('savedLocations')) || [];
+        let id = $(this).data('index');
+        let locationName = $('#weatherLocation').val().trim();
+        let oneSavedLocation = {
+          id,
+          locationName
+        };
+
+        savedLocations.push(oneSavedLocation);
+        localStorage.setItem('savedLocations', JSON.stringify(savedLocations));
+
+
     });
   });
 });
