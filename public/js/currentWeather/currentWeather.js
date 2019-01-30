@@ -1,17 +1,17 @@
 $(document).ready(() => {
 
-  function getCurrentLocation() {
+  function getLocation() {
     navigator.geolocation ?
       navigator.geolocation.getCurrentPosition(showPosition) :
       console.log('Not supported by this browser');
   };
-  getCurrentLocation();
+  getLocation();
 
   function showPosition(position) {
     const APIKey = '94d5b3ebbc302231ae85460cfe0af984';
     const LAT = position.coords.latitude;
     const LONG = position.coords.longitude;
-    const QUERYURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + LAT + "&lon=" + LONG + "&APPID=" + APIKey;
+    let QUERYURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + LAT + "&lon=" + LONG + "&APPID=" + APIKey;
 
     $.ajax({
       url: QUERYURL,
@@ -46,7 +46,7 @@ $(document).ready(() => {
       } else {
         nightBackground();
       }
-      
+
       $("#currentWeather").empty();
       $("#currentLocation").append('<h3>').text(`${data.name}, ${data.sys.country}`)
         .addClass("current-location");
@@ -120,5 +120,26 @@ $(document).ready(() => {
         .append(weatherIcon)
         .append(supplementalInfo);
     });
+  }
+
+  function showError(error) {
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        alert("User denied the request for Geolocation.");
+        break;
+
+      case error.POSITION_UNAVAILABLE:
+        alert("Location info is unavailable.");
+        break;
+
+      case error.TIMEOUT:
+        alert("The request to get location timed out.");
+        break;
+
+      case error.UNKNOWN_ERROR:
+        alert("An unknown error occurred");
+        break;
+
+    }
   }
 });
