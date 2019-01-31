@@ -41,7 +41,6 @@ $(document).ready(_ => {
         nightBackground();
       }
 
-
       $("#currentLocation").append('<h3>').text(`${data.name}, ${data.sys.country}`)
         .addClass("current-location");
 

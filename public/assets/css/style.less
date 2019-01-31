@@ -10,20 +10,12 @@
 
 // Header
 .nav-bar {
-    position: fixed;
-    width: 100%;
-    background-color: @main-color;
-    top: 0;
-    left: 0;
-    font-family: sans-serif;
-}
-
-ul, a {
-  text-decoration: none;
-}
-
-a:visited {
-  color: @second-text-color;
+  position: fixed;
+  width: 100%;
+  background-color: @main-color;
+  top: 0;
+  left: 0;
+  font-family: sans-serif;
 }
 
 ul {
@@ -34,11 +26,10 @@ ul {
 
 li {
   display: inline;
-  padding: 2%;
 }
 
 .forecast-button {
-  padding: 2% 0 0 0;
+  padding: 2%;
   background: none;
   border: none;
   font-size: .95em;
@@ -46,8 +37,10 @@ li {
 
 .forecast-button:hover {
   cursor: pointer;
+  background-color: @main-font-color;
 }
 
+// Dropdown
 .dropdown {
   background-color: @second-text-color;
   float: right;
@@ -60,7 +53,7 @@ li {
 .dropdown .dropbtn {
   border: none;
   outline: none;
-  color: @main-font-color;
+  color: @main-color;
   margin: 0;
   background-color: inherit;
 }
@@ -71,12 +64,17 @@ li {
   position: absolute;
   min-width: 160px;
   z-index: 1;
+  right: 0;
 }
 
 .dropdown-content button {
+  background-color: @main-color;
   display: block;
   text-decoration: none;
   padding: 12px 16px;
+  width: 160px;
+  border: none;
+  font-size: .95em;
 }
 
 .dropdown:hover .dropdown-content {
@@ -84,6 +82,11 @@ li {
 }
 
 .dropdown-content button:visited {
+  color: @second-text-color;
+}
+
+.saved-location:hover {
+  background-color: @data-background-color;
   color: @second-text-color;
 }
 
@@ -111,16 +114,16 @@ li {
 }
 
 .location-form {
-    text-align: center;
-    padding: 4px;
-    background-color: @weather-background-color;
-    width: 35%;
-    margin: 0 0 2% 33%;
-    border-radius: 15px;
+  text-align: center;
+  padding: 4px;
+  background-color: @weather-background-color;
+  width: 35%;
+  margin: 0 0 2% 33%;
+  border-radius: 15px;
 }
 
 .query-location {
-    padding-bottom: 9px;
+  padding-bottom: 9px;
 }
 
 .all-current-info {
@@ -307,15 +310,15 @@ li {
 
 // Footer
 .footer {
-    position: fixed;
-    width: 100%;
-    background-color: @main-color;
-    text-align: center;
-    margin: 0;
-    bottom: 0;
-    left: 0;
-    padding: @header-footer-padding;
-    color: @main-font-color;
+  position: fixed;
+  width: 100%;
+  background-color: @main-color;
+  text-align: center;
+  margin: 0;
+  bottom: 0;
+  left: 0;
+  padding: @header-footer-padding;
+  color: @main-font-color;
 }
 
 // media queries
