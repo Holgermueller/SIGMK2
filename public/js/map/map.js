@@ -10,7 +10,7 @@
 //     const APIKey = '94d5b3ebbc302231ae85460cfe0af984';
 //     const uvLAT = position.coords.latitude;
 //     const uvLONG = position.coords.longitude;
-//     const mapURL = "https://tile.openweathermap.org/map/{layer}/{z}/{x}/{y}.png?APPID=" + APIKey;
+//     const mapURL = "https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?APPID=" + APIKey;
 
 //     $.ajax({
 //       url: mapURL,
