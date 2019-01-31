@@ -114,18 +114,30 @@ $(document).ready(_ => {
         .append(weatherIcon)
         .append(supplementalInfo);
 
-        let savedLocations = JSON.parse(localStorage.getItem('savedLocations')) || [];
-        let id = $(this).data('index');
-        let locationName = $('#weatherLocation').val().trim();
-        let oneSavedLocation = {
-          id,
-          locationName
-        };
+      let savedLocations = JSON.parse(localStorage.getItem('savedLocations')) || [];
+      let id = $(this).data('index');
+      let locationName = $('#weatherLocation').val().trim();
+      let oneSavedLocation = {
+        id,
+        locationName
+      };
 
-        savedLocations.push(oneSavedLocation);
-        localStorage.setItem('savedLocations', JSON.stringify(savedLocations));
-
-
+      savedLocations.push(oneSavedLocation);
+      localStorage.setItem('savedLocations', JSON.stringify(savedLocations));
     });
   });
+
+  function populateLocationsDropdown() {
+    let searchLocations = JSON.parse(localStorage.getItem('savedLocations'));
+    $('#dropdownContent').empty();
+
+    $.map(searchLocations, locationName => {
+      let locationNameForList = locationName.locationName;
+      let savedLocationForList = $('<button>').addClass('saved-location')
+      .text(locationNameForList);
+
+      $('#dropdownContent').append(savedLocationForList);
+    });
+  }
+  populateLocationsDropdown();
 });
