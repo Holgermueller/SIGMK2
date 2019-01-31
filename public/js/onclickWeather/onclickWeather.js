@@ -1,5 +1,9 @@
 $(document).ready(_ => {
   const APIKey = '94d5b3ebbc302231ae85460cfe0af984';
+  
+  moment();
+  
+  console.log(moment.tz());
 
   $('#submitCityName').on('click', () => {
     let requestedLocation = $('#weatherLocation').val().trim();
@@ -9,7 +13,7 @@ $(document).ready(_ => {
       url: QUERYURL,
       method: 'GET'
     }).then(data => {
-      console.log(data);
+      
       $("#currentWeather").empty();
 
       moment();
