@@ -24,8 +24,18 @@ ul {
   padding: 0;
 }
 
-li {
+li,
+.query-location {
   display: inline;
+}
+
+.weather-location-input {
+  font-size: .95em;
+  width: 20%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid black;
 }
 
 .forecast-button {
@@ -113,19 +123,6 @@ li {
   font-weight: bold;
 }
 
-.location-form {
-  text-align: center;
-  padding: 4px;
-  background-color: @weather-background-color;
-  width: 35%;
-  margin: 0 0 2% 33%;
-  border-radius: 15px;
-}
-
-.query-location {
-  padding-bottom: 9px;
-}
-
 .all-current-info {
   float: left;
 }
@@ -202,7 +199,7 @@ li {
   border-radius: 15px;
   width: 50%;
   height: fit-content;
-  margin-left: 25%;
+  margin: 0 0 5% 25%;
 }
 
 .uv-forecast {
