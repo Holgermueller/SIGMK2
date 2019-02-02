@@ -1,9 +1,9 @@
 $(document).ready(_ => {
   const APIKey = '94d5b3ebbc302231ae85460cfe0af984';
   
-  moment();
+  // moment();
   
-  console.log(moment.tz());
+  // console.log(moment.tz());
 
   $('#submitCityName').on('click', () => {
     let requestedLocation = $('#weatherLocation').val().trim();
@@ -128,6 +128,7 @@ $(document).ready(_ => {
       savedLocations.push(oneSavedLocation);
       localStorage.setItem('savedLocations', JSON.stringify(savedLocations));
     });
+    populateLocationsDropdown();
   });
 
   function populateLocationsDropdown() {
@@ -143,4 +144,10 @@ $(document).ready(_ => {
     });
   }
   populateLocationsDropdown();
+
+  $('.saved-location').on('click', () => {
+    let searchLocations = JSON.parse(localStorage.getItem('savedLocations'));
+    let locationNameForList = searchLocations.locationName;
+    console.log(locationNameForList);
+  })
 });
