@@ -26,8 +26,9 @@ $(document).ready(_ => {
         let month = months[date.getMonth()];
         let uvDate = date.getDate();
         let dayOfWeek = $('<div>').addClass('day-of-week').append(day);
-        let dayAndMonth = $('<div>').addClass('day-and-month').append(month + ' ' + uvDate)
-        let dateInfo = $('<div>').addClass('date-info').append(dayOfWeek).append(dayAndMonth);
+        let dayAndMonth = $('<div>').addClass('month').append(month);
+        let theDay = $('<div>').addClass('day').append(uvDate);
+        let dateInfo = $('<div>').addClass('date-info').append(dayOfWeek).append(dayAndMonth).append(theDay);
 
         let uvRating = uvArrayItem.value;
         let ratingColor = $('<div>').addClass('rating-color').text('X');
@@ -35,7 +36,7 @@ $(document).ready(_ => {
 
         let uvInfo = $('<div>').append(uvRating).append(ratingColor).append(uvMessage);
 
-        let individualForecastInfo = $('<div>').addClass('ind-frcst-info').append(dateInfo)
+        let individualUVForecastInfo = $('<div>').addClass('ind-frcst-info').append(dateInfo)
           .append('<hr>').append(uvInfo);
 
         if (uvRating <= 2.9) {
@@ -50,13 +51,15 @@ $(document).ready(_ => {
         } else if (uvRating >= 8.0 && uvRating <= 10.9) {
           $('.rating-color').css({ 'background-color': '#D80D1C' }).css({ 'color': '#D80D1C' });
           $('.uv-message').text("Repent!!");
-        } else {
+        } else if (uvRating > 11) {
           $('.rating-color').css({ 'background-color': '#6B49C7' }).css({ 'color': '#6B49C7' });
           $('.uv-message').text("Doom is upon you!!");
         }
 
-        $('#uvForecast').append(individualForecastInfo);
+        $('#uvForecast').append(individualUVForecastInfo);
       });
+    }).catch(err => {
+      console.log(err);
     });
   }
 });
