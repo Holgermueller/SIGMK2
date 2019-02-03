@@ -119,27 +119,8 @@ $(document).ready(() => {
       $("#currentWeather").append(currentWeatherInfo)
         .append(weatherIcon)
         .append(supplementalInfo);
+    }).catch(err => {
+      console.log(err);
     });
-  }
-
-  function showError(error) {
-    switch (error.code) {
-      case error.PERMISSION_DENIED:
-        alert("User denied the request for Geolocation.");
-        break;
-
-      case error.POSITION_UNAVAILABLE:
-        alert("Location info is unavailable.");
-        break;
-
-      case error.TIMEOUT:
-        alert("The request to get location timed out.");
-        break;
-
-      case error.UNKNOWN_ERROR:
-        alert("An unknown error occurred");
-        break;
-
-    }
   }
 });

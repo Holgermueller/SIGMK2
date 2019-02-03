@@ -1,19 +1,13 @@
 $(document).ready(_ => {
   const APIKey = '94d5b3ebbc302231ae85460cfe0af984';
-  
-  // moment();
-  
-  // console.log(moment.tz());
 
   $('#submitCityName').on('click', () => {
     let requestedLocation = $('#weatherLocation').val().trim();
-    let QUERYURL = "https://api.openweathermap.org/data/2.5/weather?q=" + requestedLocation + "&APPID=" + APIKey;
-
+    let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + requestedLocation + "&APPID=" + APIKey;
     $.ajax({
-      url: QUERYURL,
+      url: queryURL,
       method: 'GET'
     }).then(data => {
-      
       $("#currentWeather").empty();
 
       moment();
@@ -117,16 +111,19 @@ $(document).ready(_ => {
         .append(weatherIcon)
         .append(supplementalInfo);
 
-      let savedLocations = JSON.parse(localStorage.getItem('savedLocations')) || [];
-      let id = $(this).data('index');
-      let locationName = $('#weatherLocation').val().trim();
-      let oneSavedLocation = {
-        id,
-        locationName
-      };
-
-      savedLocations.push(oneSavedLocation);
-      localStorage.setItem('savedLocations', JSON.stringify(savedLocations));
+        let savedLocations = JSON.parse(localStorage.getItem('savedLocations')) || [];
+        let id = $(this).data('index');
+        let locationName = $('#weatherLocation').val().trim();
+        let oneSavedLocation = {
+          id,
+          locationName
+        };
+  
+        savedLocations.push(oneSavedLocation);
+        localStorage.setItem('savedLocations', JSON.stringify(savedLocations));
+        
+    }).catch(err => {
+      console.log(err);
     });
     populateLocationsDropdown();
   });
@@ -138,16 +135,16 @@ $(document).ready(_ => {
     $.map(searchLocations, locationName => {
       let locationNameForList = locationName.locationName;
       let savedLocationForList = $('<button>').addClass('saved-location')
-      .text(locationNameForList);
+        .text(locationNameForList);
 
       $('#dropdownContent').append(savedLocationForList);
     });
   }
   populateLocationsDropdown();
 
-  $('.saved-location').on('click', () => {
-    let searchLocations = JSON.parse(localStorage.getItem('savedLocations'));
-    let locationNameForList = searchLocations.locationName;
-    console.log(locationNameForList);
-  })
+  // $('.saved-location').on('click', () => {
+  //   let searchLocations = JSON.parse(localStorage.getItem('savedLocations'));
+  //   let locationNameForList = searchLocations.locationName;
+  //   console.log(locationNameForList);
+  // })
 });

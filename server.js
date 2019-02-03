@@ -12,21 +12,9 @@ const PORT = process.env.PORT || 8080;
 
 APP.use(morgan('tiny'));
 
-const myErrorHanlder = (errorInfo, callback) => {
-  console.log(errorInfo);
-  if (errorInfo.stage === 'minify'){
-    callback(errorInfo.error, JSON.stringify(errorInfo.error));
-    return;
-  }
-  callback(errorInfo.error, errorInfo.body);
-};
-
 APP.use(compression());
 APP.use(lessMiddleware('public'));
-APP.use(minify({
-  uglifyJS: uglifyEs,
-  errorHandler: myErrorHanlder
-}));
+APP.use(minify());
 APP.use(EXPRESS.static('public'));
 
 APP.engine('handlebars', EXPHBS({ defaultLayout: 'main'}));

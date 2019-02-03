@@ -80,6 +80,8 @@ $(document).ready(() => {
 
         $("#forecastWeather").append(forecastWeather);
       });
+    }).catch(err => {
+      console.log(err);
     });
   }
 });
