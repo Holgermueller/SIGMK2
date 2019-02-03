@@ -30,6 +30,9 @@
     "uglify-es": "^3.3.9"
   },
   "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-terser": "^1.1.7",
+    "gulp-uglifyes": "^0.2.1",
     "less": "^3.8.1"
   }
 }
