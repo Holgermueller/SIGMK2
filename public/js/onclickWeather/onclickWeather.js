@@ -111,17 +111,17 @@ $(document).ready(_ => {
         .append(weatherIcon)
         .append(supplementalInfo);
 
-        let savedLocations = JSON.parse(localStorage.getItem('savedLocations')) || [];
-        let id = $(this).data('index');
-        let locationName = $('#weatherLocation').val().trim();
-        let oneSavedLocation = {
-          id,
-          locationName
-        };
-  
-        savedLocations.push(oneSavedLocation);
-        localStorage.setItem('savedLocations', JSON.stringify(savedLocations));
-        
+      let savedLocations = JSON.parse(localStorage.getItem('savedLocations')) || [];
+      let id = $(this).data('index');
+      let locationName = $('#weatherLocation').val().trim();
+      let oneSavedLocation = {
+        id,
+        locationName
+      };
+
+      savedLocations.push(oneSavedLocation);
+      localStorage.setItem('savedLocations', JSON.stringify(savedLocations));
+
     }).catch(err => {
       console.log(err);
     });
@@ -135,16 +135,11 @@ $(document).ready(_ => {
     $.map(searchLocations, locationName => {
       let locationNameForList = locationName.locationName;
       let savedLocationForList = $('<button>').addClass('saved-location')
-        .text(locationNameForList);
+        .text(locationNameForList)
+        .attr('value', locationNameForList);
 
       $('#dropdownContent').append(savedLocationForList);
     });
   }
   populateLocationsDropdown();
-
-  // $('.saved-location').on('click', () => {
-  //   let searchLocations = JSON.parse(localStorage.getItem('savedLocations'));
-  //   let locationNameForList = searchLocations.locationName;
-  //   console.log(locationNameForList);
-  // })
 });
