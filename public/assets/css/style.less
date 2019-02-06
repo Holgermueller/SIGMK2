@@ -8,6 +8,11 @@
 // padding
 @header-footer-padding: 2px;
 
+// Global
+li {
+  list-style-type: none;
+}
+
 // Header
 .nav-bar {
   position: fixed;
@@ -18,13 +23,12 @@
   font-family: sans-serif;
 }
 
-ul {
-  list-style-type: none;
+.nav-segments {
   margin: 0;
   padding: 0;
 }
 
-li,
+.nav-seg,
 .query-location {
   display: inline;
 }
@@ -50,7 +54,87 @@ li,
   background-color: @main-font-color;
 }
 
-// Dropdown
+// Demos Dropdown
+.demo-dropdown-holder {
+  overflow: hidden;
+  top: 0;
+  margin: 8% 0 0 2%;
+}
+
+.demo-dropdown-holder .demo-button {
+  border: none;
+  outline: none;
+  margin: 0;
+}
+
+.demo-button {
+  background-color: @main-color;
+  padding: 2%;
+  font-size: .95em;
+  cursor: pointer;
+}
+
+.main-dropdown{
+  min-width: 160px;
+  display: none;
+  position: absolute;
+  color: @main-font-color;
+  z-index: 1;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  left: 6%;
+}
+
+.main-dropdown input {
+  padding: 12px 16px;
+  width: 160px;
+  border: none;
+  font-size: .95em;
+  text-align: left;
+}
+
+.demo-dropdown-holder:hover .main-dropdown {
+  display: block;
+}
+
+.demo-sub-button {
+  background-color: @main-color;
+}
+
+.demo-sub-button:hover {
+  background-color: @data-background-color;
+  cursor: pointer;
+}
+
+// Sky Dropdown
+.sky-background-demos {
+  display: none;
+}
+
+.sky-demos:hover .sky-background-demos {
+  display: grid;
+}
+
+.sky-button {
+  min-width: 160px;
+  padding: 12px 16px;
+  font-size: .95em;
+}
+
+.sky-button:hover {
+  background-color: @data-background-color;
+  cursor: pointer;
+}
+
+// Weather Demos
+.weather-demos-holder {
+  display: none;
+}
+
+.weather-demos:hover .weather-demos-holder {
+  display: block;
+}
+
+// Locations Dropdown
 .dropdown {
   background-color: @second-text-color;
   float: right;
@@ -115,8 +199,7 @@ li,
 
 .date-time {
   width: fit-content;
-  margin-left: 39%;
-  margin-top: 7%;
+  margin: 0 0 0 39%;
   .section-header;
 }
 
