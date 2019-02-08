@@ -4,7 +4,7 @@ const uglify = require('gulp-uglifyes');
 
 // uglify js files
 function es() {
-  return gulp.src('./public/js/currentWeather/currentWeather.js')
+  return gulp.src('./public/js/fiveDayForecast/fiveDayForecast.js')
   .pipe(uglify())
   .pipe(gulp.dest('./public/js/bundle/'));
 }
