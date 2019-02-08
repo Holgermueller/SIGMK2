@@ -136,7 +136,8 @@ $(document).ready(_ => {
       let locationNameForList = locationName.locationName;
       let savedLocationForList = $('<button>').addClass('saved-location')
         .text(locationNameForList)
-        .attr('value', locationNameForList);
+        .attr('value', locationNameForList)
+        .attr('id', locationNameForList);
 
       $('#dropdownContent').append(savedLocationForList);
     });
