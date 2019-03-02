@@ -1,1 +1,0 @@
-function updateTime(){moment();const e=moment().format("ddd, MMM Do, YYYY <br> hh:mm:ss A");$("#currentTime").html(e)}setInterval(updateTime,1e3);

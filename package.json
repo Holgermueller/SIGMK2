@@ -22,17 +22,20 @@
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
-    "express-minify": "^1.0.0",
-    "less-middleware": "^3.1.0",
     "morgan": "^1.9.1",
-    "nodemon": "^1.18.9",
-    "reload": "^2.4.0",
-    "uglify-es": "^3.3.9"
+    "nodemon": "^1.18.9"
   },
   "devDependencies": {
-    "gulp": "^4.0.0",
-    "gulp-terser": "^1.1.7",
-    "gulp-uglifyes": "^0.2.1",
+    "grunt": "^1.0.3",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-browserify": "^5.3.0",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-jshint": "^2.0.0",
+    "grunt-contrib-less": "^2.0.0",
+    "grunt-contrib-uglify": "^4.0.0",
+    "grunt-contrib-uglify-es": "^3.3.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-uncss": "^0.8.5",
     "less": "^3.8.1"
   }
 }

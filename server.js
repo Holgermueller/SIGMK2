@@ -1,9 +1,5 @@
 const EXPRESS = require('express');
 const EXPHBS = require('express-handlebars');
-const lessMiddleware = require('less-middleware');
-const minify = require('express-minify');
-const uglifyEs = require('uglify-es');
-const reload = require('reload');
 const compression = require('compression');
 const morgan = require('morgan');
 
@@ -13,8 +9,6 @@ const PORT = process.env.PORT || 8080;
 APP.use(morgan('tiny'));
 
 APP.use(compression());
-APP.use(lessMiddleware('public'));
-APP.use(minify());
 APP.use(EXPRESS.static('public'));
 
 APP.engine('handlebars', EXPHBS({ defaultLayout: 'main'}));
@@ -25,4 +19,3 @@ require('./routes/routes.js')(APP);
 APP.listen(PORT, () => {
   console.log('server listening on ', PORT);
 });
-reload(APP);
