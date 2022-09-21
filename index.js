@@ -58,10 +58,12 @@ const getRandomProtagonist = () => {
 
 const getRandomAction = () => {
   let action = actions[Math.floor(Math.random() * actions.length)];
+  document.getElementById("middleLeftSide").innerHTML = action;
 };
 
 const getRandomWord = () => {
   let randomWord = randomWords[Math.floor(Math.random() * randomWords.length)];
+  document.getElementById("bottomRightSide").innerHTML = randomWord;
 };
 
 const setCubes = () => {
@@ -83,6 +85,26 @@ const turnCube = () => {
   currentClass = sideToShow;
 };
 
+const turnMiddleCube = () => {
+  const sideToShow = document.getElementById("middleCube");
+  if (currentClass === "show-front") {
+    cube.classList.remove(currentClass);
+  }
+  sideToShow.classList.add("show-left");
+
+  currentClass = sideToShow;
+};
+
+const turnBottomCube = () => {
+  const sideToShow = document.getElementById("bottomCube");
+  if (currentClass === "show-front") {
+    cube.classList.remove(currentClass);
+  }
+  sideToShow.classList.add("show-right");
+
+  currentClass = sideToShow;
+};
+
 const reset = () => {
   document.getElementById("storyElementsButton").disabled = "false";
   //setCubes();
@@ -96,6 +118,8 @@ const getStoryElements = () => {
   getRandomAction();
   getRandomWord();
   turnCube();
+  turnMiddleCube();
+  turnBottomCube();
 };
 
 setCubes();
