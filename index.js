@@ -53,7 +53,7 @@ const randomWords = [
 const getRandomProtagonist = () => {
   let protagonist =
     protagonists[Math.floor(Math.random() * protagonists.length)];
-  console.log(protagonist);
+  document.getElementById("topRightSide").innerHTML = protagonist;
 };
 
 const getRandomAction = () => {
@@ -64,8 +64,28 @@ const getRandomWord = () => {
   let randomWord = randomWords[Math.floor(Math.random() * randomWords.length)];
 };
 
+const setCube = () => {
+  const sideToShow = document.getElementById("cube");
+  if (currentClass === "show-right") {
+    cube.classList.remove(currentClass);
+  }
+  sideToShow.classList.add("show-front");
+  currentClass = sideToShow;
+};
+
 const turnCube = () => {
-  const sideToShow = "show-" + document.getElementsByClassName("right").value;
+  const sideToShow = document.getElementById("cube");
+  if (currentClass === "show-front") {
+    cube.classList.remove(currentClass);
+  }
+  sideToShow.classList.add("show-right");
+
+  currentClass = sideToShow;
+};
+
+const reset = () => {
+  setCube();
+  console.log("click");
 };
 
 const getStoryElements = () => {
@@ -76,3 +96,5 @@ const getStoryElements = () => {
   getRandomWord();
   turnCube();
 };
+
+setCube();
