@@ -1,0 +1,57 @@
+body,
+html {
+  margin: 0;
+  font-family: "Pacifico", cursive;
+}
+h1 {
+  text-align: center;
+}
+.cube-section {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  height: 50vh;
+  perspective: 400px;
+}
+.cube {
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  transform: translateZ(-100px);
+  transition: transform 1s;
+}
+
+.cube-face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+  line-height: 200px;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+.cube.show-front {
+  transform: translateZ(-100px) rotateY(0deg);
+}
+.cube.show-right {
+  transform: translateZ(-100px) rotateY(-90deg);
+}
+.cube-face-front {
+  background: pink;
+}
+.cube-face-right {
+  background: blue;
+}
+
+.cube-face-front {
+  transform: rotateY(0deg) translateZ(100px);
+}
+.cube-face-right {
+  transform: rotateY(90deg) translateZ(100px);
+}
+
+footer {
+  text-align: center;
+}
