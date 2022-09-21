@@ -7,6 +7,8 @@ html {
 h1,
 h2 {
   text-align: center;
+  width: max-content;
+  margin: auto;
 }
 .cube-section {
   display: grid;
@@ -15,7 +17,7 @@ h2 {
   height: 50vh;
 }
 .scene {
-  width: 80vw;
+  width: 500px;
   height: 50%;
   margin: 8px;
   perspective: 1000px;
@@ -25,7 +27,7 @@ h2 {
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  transform: translateZ(-100px);
+  transform: translateZ(-250px);
   transition: transform 1s;
 }
 
@@ -39,10 +41,10 @@ h2 {
   text-align: center;
 }
 .cube.show-front {
-  transform: translateZ(-100px) rotateY(0deg);
+  transform: translateZ(-250px) rotateY(0deg);
 }
 .cube.show-right {
-  transform: translateZ(-100px) rotateY(-90deg);
+  transform: translateZ(-250px) rotateY(-90deg);
 }
 .cube-face-front {
   background: pink;
@@ -52,10 +54,10 @@ h2 {
 }
 
 .cube-face-front {
-  transform: rotateY(0deg) translateZ(100px);
+  transform: rotateY(0deg) translateZ(250px);
 }
 .cube-face-right {
-  transform: rotateY(90deg) translateZ(100px);
+  transform: rotateY(90deg) translateZ(250px);
 }
 
 footer {

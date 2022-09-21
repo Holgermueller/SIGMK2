@@ -84,12 +84,13 @@ const turnCube = () => {
 };
 
 const reset = () => {
-  setCubes();
+  document.getElementById("storyElementsButton").disabled = "false";
+  //setCubes();
   console.log("click");
 };
 
 const getStoryElements = () => {
-  document.getElementById("storyElementsButton");
+  document.getElementById("storyElementsButton").disabled = "true";
 
   getRandomProtagonist();
   getRandomAction();
