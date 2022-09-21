@@ -64,8 +64,8 @@ const getRandomWord = () => {
   let randomWord = randomWords[Math.floor(Math.random() * randomWords.length)];
 };
 
-const setCube = () => {
-  const sideToShow = document.getElementById("cube");
+const setCubes = () => {
+  const sideToShow = document.getElementById("topCube");
   if (currentClass === "show-right") {
     cube.classList.remove(currentClass);
   }
@@ -74,7 +74,7 @@ const setCube = () => {
 };
 
 const turnCube = () => {
-  const sideToShow = document.getElementById("cube");
+  const sideToShow = document.getElementById("topCube");
   if (currentClass === "show-front") {
     cube.classList.remove(currentClass);
   }
@@ -84,7 +84,7 @@ const turnCube = () => {
 };
 
 const reset = () => {
-  setCube();
+  setCubes();
   console.log("click");
 };
 
@@ -97,4 +97,4 @@ const getStoryElements = () => {
   turnCube();
 };
 
-setCube();
+setCubes();
