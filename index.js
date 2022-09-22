@@ -66,15 +66,6 @@ const getRandomWord = () => {
   document.getElementById("bottomRightSide").innerHTML = randomWord;
 };
 
-const setCubes = () => {
-  const sideToShow = document.getElementById("topCube");
-  if (currentClass === "show-right") {
-    cube.classList.remove(currentClass);
-  }
-  sideToShow.classList.add("show-front");
-  currentClass = sideToShow;
-};
-
 const turnCube = () => {
   const sideToShow = document.getElementById("topCube");
   if (currentClass === "show-front") {
@@ -105,14 +96,8 @@ const turnBottomCube = () => {
   currentClass = sideToShow;
 };
 
-const reset = () => {
-  document.getElementById("storyElementsButton").disabled = "false";
-  //setCubes();
-  console.log("click");
-};
-
 const getStoryElements = () => {
-  document.getElementById("storyElementsButton").disabled = "true";
+  document.getElementById("storyElementsButton").disabled = true;
 
   getRandomProtagonist();
   getRandomAction();
@@ -122,4 +107,14 @@ const getStoryElements = () => {
   turnBottomCube();
 };
 
-setCubes();
+const resetCubes = () => {
+  const sideToShow = document.getElementById("topCube");
+  const backToFront = document.getElementById("middleCube");
+  const sideToReturn = document.getElementById("bottomCube");
+
+  sideToShow.classList.remove("show-right");
+  backToFront.classList.remove("show-left");
+  sideToReturn.classList.remove("show-right");
+
+  document.getElementById("storyElementsButton").disabled = false;
+};

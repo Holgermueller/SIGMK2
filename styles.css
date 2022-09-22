@@ -16,13 +16,12 @@ h2 {
   place-items: center;
   align-content: center;
   height: 50vh;
+  width: max-content;
+  margin: 5% auto;
 }
 .scene {
-  grid-column: 1;
-  grid-row: 1;
   width: 500px;
-  height: 50%;
-  margin: 8px;
+  height: 29%;
   perspective: 1000px;
 }
 .cube {
@@ -51,29 +50,28 @@ h2 {
   transform: translateZ(-250px) rotateY(-90deg);
 }
 .cube.show-left {
-  transform: translateZ(-25px) rotateY(90deg);
+  transform: translateZ(-250px) rotateY(90deg);
 }
 .cube-face-front {
   background: pink;
-}
-.cube-face-right {
-  background: blue;
-}
-.cube-face-left {
-  background: blue;
-}
-.cube.show-left {
-  transform: translateZ(-250px) rotateY(90deg);
-}
-
-.cube-face-front {
   transform: rotateY(0deg) translateZ(250px);
 }
 .cube-face-right {
+  background: blue;
   transform: rotateY(90deg) translateZ(250px);
 }
 .cube-face-left {
+  background: blue;
   transform: rotateY(-90deg) translateZ(250px);
+}
+
+.button-section {
+  display: flex;
+  flex-direction: column;
+}
+button {
+  width: 25%;
+  margin: 8px auto;
 }
 
 footer {
