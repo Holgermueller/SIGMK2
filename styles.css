@@ -14,11 +14,16 @@ h2 {
 h1 {
   font-size: 3rem;
   font-weight: 300;
+  background-color: #008080;
+  color: #fff;
+  padding: 8px;
+  border-radius: 5px;
 }
 
 h2 {
   font-size: 1rem;
   font-weight: 100;
+  color: #008080;
 }
 
 .cube-section {
@@ -26,7 +31,7 @@ h2 {
   flex-direction: column;
   place-items: center;
   align-content: center;
-  height: 50vh;
+  height: 45vh;
   width: max-content;
   margin: 5% auto;
   background: transparent;
@@ -46,7 +51,6 @@ h2 {
 }
 
 .cube-face {
-  border-radius: 5px;
   position: absolute;
   width: 100%;
   height: max-content;
@@ -55,6 +59,17 @@ h2 {
   color: white;
   text-align: center;
 }
+
+#topRightSide {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.cube-face:last-of-type {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
 .cube.show-front {
   transform: translateZ(-250px) rotateY(0deg);
 }
@@ -65,15 +80,16 @@ h2 {
   transform: translateZ(-250px) rotateY(90deg);
 }
 .cube-face-front {
-  background: pink;
+  background: #ffffff;
+  color: #008080;
   transform: rotateY(0deg) translateZ(250px);
 }
 .cube-face-right {
-  background: blue;
+  background: #008080;
   transform: rotateY(90deg) translateZ(250px);
 }
 .cube-face-left {
-  background: blue;
+  background: #008080;
   transform: rotateY(-90deg) translateZ(250px);
 }
 
@@ -87,10 +103,15 @@ button {
   font-size: medium;
   padding: 8px;
   border-radius: 5px;
+  background-color: #008080;
+  color: #fff;
+  border: 1px solid #fff;
+  font-size: 1.25rem;
 }
 
 button:disabled {
   background: transparent;
+  color: transparent;
 }
 
 footer {

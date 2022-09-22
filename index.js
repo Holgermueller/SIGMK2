@@ -98,6 +98,7 @@ const turnBottomCube = () => {
 
 const getStoryElements = () => {
   document.getElementById("storyElementsButton").disabled = true;
+  document.getElementById("reset").disabled = false;
 
   getRandomProtagonist();
   getRandomAction();
@@ -117,4 +118,5 @@ const resetCubes = () => {
   sideToReturn.classList.remove("show-right");
 
   document.getElementById("storyElementsButton").disabled = false;
+  document.getElementById("reset").disabled = true;
 };
