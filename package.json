@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "postcss:watch": "postcss styles.css --dir public --watch"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Holgermueller/TimeandTemp.git"
@@ -14,6 +16,10 @@
     "url": "https://github.com/Holgermueller/TimeandTemp/issues"
   },
   "homepage": "https://github.com/Holgermueller/TimeandTemp#readme",
-  "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "autoprefixer": "^10.4.12",
+    "cssnano": "^5.1.13",
+    "postcss": "^8.4.16",
+    "postcss-cli": "^10.0.0"
+  }
 }
