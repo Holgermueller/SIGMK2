@@ -58,6 +58,7 @@ h2 {
   font-size: 3rem;
   color: white;
   text-align: center;
+  box-shadow: 0px 8px 0px #000;
 }
 
 #topRightSide {
