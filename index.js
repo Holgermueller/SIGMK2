@@ -97,9 +97,6 @@ const turnBottomCube = () => {
 };
 
 const getStoryElements = () => {
-  document.getElementById("storyElementsButton").disabled = true;
-  document.getElementById("reset").disabled = false;
-
   getRandomProtagonist();
   getRandomAction();
   getRandomWord();
@@ -116,7 +113,16 @@ const resetCubes = () => {
   sideToShow.classList.remove("show-right");
   backToFront.classList.remove("show-left");
   sideToReturn.classList.remove("show-right");
+};
 
-  document.getElementById("storyElementsButton").disabled = false;
-  document.getElementById("reset").disabled = true;
+const toggleButton = () => {
+  let text = document.getElementById("button");
+
+  if (text.innerHTML === "Reset") {
+    text.innerHTML = "Give Me A Plot!";
+    resetCubes();
+  } else {
+    text.innerHTML = "Reset";
+    getStoryElements();
+  }
 };
