@@ -21,6 +21,15 @@ const protagonists = [
   "Seducer",
   "Thief",
   "Troubadour",
+  "Chef",
+  "Aritst",
+  "Poet",
+  "Writer",
+  "Novelist",
+  "Reporter",
+  "Doctor",
+  "Sculptor",
+  "Monster",
 ];
 
 const actions = [
@@ -35,6 +44,7 @@ const actions = [
   "loses",
   "restores",
   "fixes",
+  "creates",
 ];
 
 const randomWords = [
