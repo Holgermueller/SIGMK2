@@ -53,8 +53,40 @@
       </div>
     </section>
 
-    <div class="button-section">
+    <div class="about-button-section">
       <button id="button" onclick="toggleButton()">Give Me A Plot!</button>
+    </div>
+
+    <section class="button-section">
+      <button class="about-button" id="modalButton" onclick="showModal()">
+        About
+      </button>
+    </section>
+
+    <div class="modal" id="myModal">
+      <div class="modal-content">
+        <p class="modal-text">
+          Hello, Esteemed Internet Wanderer, and welcome to this app!
+        </p>
+        <p>
+          It pulls random words from a few arrays and displays the words on the
+          DOM. The story you write in response to the words is open to
+          interpretation. The nifty thing is that it does this on a 3D cube that
+          spins.
+        </p>
+        <p>
+          If you'd like to know some more about it, not that's there's much more
+          to know, you can check out the repo here:
+          <a
+            target="_blank"
+            class="repo-link"
+            href="https://github.com/Holgermueller/SIGMK2"
+            >REPO</a
+          >
+        </p>
+
+        <span onclick="hideModal()" id="span" class="close">CLOSE</span>
+      </div>
     </div>
 
     <footer>&copy;2022 Holger Mueller</footer>
