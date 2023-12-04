@@ -150,3 +150,7 @@ const showModal = () => {
 const hideModal = () => {
   modal.style.display = "none";
 };
+
+const d = new Date();
+let year = d.getFullYear();
+document.getElementById("year").innerHTML = year;
