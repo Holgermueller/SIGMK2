@@ -38,7 +38,7 @@ Think something's missing from one or all of the lists? Go an idea for a feature
 
 ### Find a bug?
 
-If you discover an issue, please create an issue. Then create a PR and reference the issue you created.
+If you discover a bug, please create an issue. Then create a PR and reference the issue you created.
 
 ### Like this project?
 
